@@ -1,0 +1,235 @@
+* {
+    font-family: sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: #999;
+}
+body,
+html,
+{
+    padding: 0px;
+    margin: 0px;
+}
+.body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.tools {
+    width: 100%;
+    height: 100%;
+    /*
+    background-image: url(img/brillant.png);
+    background-repeat: repeat;
+*/
+    position: absolute;
+}
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ECEDF1;
+    margin: 0px auto;
+}
+.tooltabs {
+    height: auto;
+    width: 49%;
+    float: left;
+    margin: 0px auto;
+    margin-top: -10px;
+    text-align: center;
+    border: 0.5px dotted #F4F4F4;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #999;
+    background-color: #ECEDF1;
+}
+.canvas {
+    margin: 40px 5% 0px 5%;
+    width: 90%;
+    height: 478px;
+    border: solid 1px;
+    background: #fff;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.footer {
+    width: 100%;
+    height: 65px;
+    /*    border: solid .5px;*/
+    background: #fff;
+    position: inherit;
+    /*
+    background-image: url(img/brillant.png);
+    background-repeat: repeat;
+*/
+    bottom: 0;
+}
+.menucnt {
+    width: 24.4%;
+    height: 60px;
+    margin: 2px 1px;
+    /*    border: solid .5px;*/
+    background: #ECEDF1;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+.menuimgcnt {
+    width: 40px;
+    height: 40px;
+    margin: 2px auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.toolsubmenu {
+    width: 99%;
+    height: 250px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: solid .5px;
+    bottom: 65px;
+    position: absolute;
+    z-index: 1000;
+    background: #fff;
+    display: none;
+}
+.toolsBG {
+    width: 100%;
+    height: 240px;
+    /*    background: #f3f3f3;*/
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.toolsIMG {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.toolsTXT {
+    width: 100%;
+    height: 240px;
+    background: #987532;
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.toolsSHP {
+    width: 100%;
+    height: 240px;
+    background: #564832;
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.colorcnt {
+    width: 92px;
+    height: 240px;
+    text-align: center;
+    border-right: solid .5px;
+    border-right-color: #ECEDF1;
+    display: inline-block;
+    padding: 5px;
+    margin-top: -10px;
+    float: left;
+}
+.clrcnt {
+    width: 28px;
+    height: 28px;
+    border: solid 1px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    float: left;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #444444;
+}
+.colorpicker {
+    background-color: #222222;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #444444;
+    color: #FFFFFF;
+    font-size: 12px;
+    position: absolute;
+    width: 120px;
+}
+#picker {
+    cursor: crosshair;
+    float: left;
+    margin: 10px;
+    border: 0;
+}
+.preview {
+    background: url("../img/select.png") repeat scroll center center transparent;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #444444;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+.BGimgcnt {
+    width: 240px;
+    height: 240px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    margin-top: -10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.imgholder {
+    width: 100px;
+    height: 100px;
+    margin: 9px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    border: dotted .5px;
+}
+.IMGupload {
+    width: 49%;
+    height: 208px;
+    text-align: center;
+    border-right: solid .5px;
+    border-right-color: #ECEDF1;
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: -10px;
+    float: left;
+    font-size: 11px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.ULimgcnt {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    margin-top: -10px;
+    
+}
+.ULimgholder{
+    width: 60px;
+    height: 60px;
+    margin: 9px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    border: dotted .5px;
+}
