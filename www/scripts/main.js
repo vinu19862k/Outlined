@@ -9,7 +9,7 @@ function id(element) {
 function onDeviceReady() {
 	cameraApp = new cameraApp();
     cameraApp.run();
-alert('gh');
+
     navigator.splashscreen.hide();
 }
 

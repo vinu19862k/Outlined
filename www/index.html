@@ -3,7 +3,6 @@
 
 <head>
     <title>Outlined</title>
-    <meta charset="utf-8">
     <!--    <meta name="viewport" content="width=device-width,initial-scale=1" />-->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/spectrum.css" />
@@ -19,7 +18,6 @@
         <div id="canvas" class="canvas">
             <button class="button dh" id="getPhotoFromLibraryButton">Select from Photo Library</button>
             <a href="Camera.html">Link</a>
-            <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
         </div>
 
 
@@ -125,7 +123,47 @@
         <script src="js/iscroll.js"></script>
         <script src="js/tools.js"></script>
         <script src="js/script.js"></script>
+        <script>
+            function opengallery() {
+                $('#gallerybtn').click();
+            }
 
+
+
+            var ImagePicker = function() {
+
+            };
+
+            /*
+             *	success - success callback
+             *	fail - error callback
+             *	options
+             *		.maximumImagesCount - max images to be selected, defaults to 15. If this is set to 1, 
+             *		                      upon selection of a single image, the plugin will return it.
+             *		.width - width to resize image to (if one of height/width is 0, will resize to fit the
+             *		         other while keeping aspect ratio, if both height and width are 0, the full size
+             *		         image will be returned)
+             *		.height - height to resize image to
+             *		.quality - quality of resized image, defaults to 100
+             */
+            ImagePicker.prototype.getPictures = function(success, fail, options) {
+                if (!options) {
+                    options = {};
+                }
+
+                var params = {
+                    maximumImagesCount: options.maximumImagesCount ? options.maximumImagesCount : 15,
+                    width: options.width ? options.width : 0,
+                    height: options.height ? options.height : 0,
+                    quality: options.quality ? options.quality : 100
+                };
+
+                return cordova.exec(success, fail, "ImagePicker", "getPictures", [params]);
+            };
+
+            window.imagePicker = new ImagePicker()
+
+        </script>
 
     </div>
 </body>
