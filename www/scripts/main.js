@@ -9,7 +9,7 @@ function id(element) {
 function onDeviceReady() {
 	cameraApp = new cameraApp();
     cameraApp.run();
-alert('gh');
+
     navigator.splashscreen.hide();
 }
 
@@ -31,6 +31,9 @@ cameraApp.prototype={
         });
 	    id("capturePhotoEditButton").addEventListener("click", function(){
             that._capturePhotoEdit.apply(that,arguments)
+        });
+        $('.getPhotoFromLibraryButton').addEventListener("click", function(){
+            that._getPhotoFromLibrary.apply(that,arguments)
         });
 	    id("getPhotoFromLibraryButton").addEventListener("click", function(){
             that._getPhotoFromLibrary.apply(that,arguments)
