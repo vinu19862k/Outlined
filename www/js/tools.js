@@ -57,4 +57,6 @@ function fillbgimg(id) {
     hideall();
 }
 
-
+function opengallery() {
+    $('#getPhotoFromLibraryButton').click();
+}
