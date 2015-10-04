@@ -108,7 +108,7 @@ cameraApp.prototype = {
         //        smallImage.style.display = 'block';
 
         // Show the captured photo.
-        var img = localStorage.getItem("imgcnt");
+        var img = localStorage.getItem("imgstr");
 
         if (img != null) {
             img = imageURI + "^" + img
