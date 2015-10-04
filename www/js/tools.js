@@ -70,6 +70,7 @@ function insertimg() {
         var div = div.concat(i, '" onclick="insertimg("', res[i], '")></img>');
         $(".ULimgcnt").prepend(div);
         var smallImage = document.getElementById('ULimg' + i);
+         alert(smallImage);
         smallImage.src = res[i];
         alert("3");
     }
