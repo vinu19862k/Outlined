@@ -76,6 +76,7 @@ function insertimg() {
 }
 
 function addimg(e) {
+    alert(e);
     var div = '<div class="canvasimg"></div>';
     $(".canvas").append(div);
     $(".canvasimg").css('background-image', e);
