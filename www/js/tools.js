@@ -57,10 +57,6 @@ function fillbgimg(id) {
     hideall();
 }
 
-function handleMove(event) {
-    // Get a reference to our coordinates div
-    alert(x);
-}
 
 function set() {
     localStorage.setItem("Name", "Bob");
@@ -70,7 +66,7 @@ function set() {
     alert(localStorage.getItem("Name"));
 }
 
-function set() {
+function get() {
     alert(localStorage.getItem("Name"));
 
 }
