@@ -63,21 +63,13 @@ function opengallery() {
 }
 
 function insertimg() {
-
-    localStorage.setItem("imgcnt", "asdfads^sdfsf^asdfjb^sadkjfb^jksbdf");
-
     var img = localStorage.getItem("imgcnt");
-
     var res = img.split("^");
-
     for (i = 0; i < res.length; i++) {
-
         var div = '<img class="ULimgholder ULimg';
         var div = div.concat(i, '" onclick="insertimg("', res[i], '")></img>');
-
         $(".ULimgcnt").prepend(div);
         var smallImage = document.getElementById('ULimg' + i);
-
         smallImage.src = res[i];
         alert("3");
     }
