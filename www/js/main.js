@@ -106,20 +106,31 @@ cameraApp.prototype = {
     _onPhotoURISuccess: function (imageURI) {
         //        var smallImage = document.getElementById('smallImage');
         //        smallImage.style.display = 'block';
-        alert("sd");
+
         // Show the captured photo.
         var img = localStorage.getItem("imgcnt");
+
         if (img != null) {
-            localStorage.setItem("imgcnt", localStorage.getItem("imgcnt") + "^" + imageURI);
+            img = imageURI + "^" + img
+            localStorage.setItem("imgcnt", img);
         } else {
             localStorage.setItem("imgcnt", imageURI);
         }
-        alert(localStorage.getItem("imgcnt"));
 
-        //        smallImage.src = imageURI;
+        function insertimg(img);
+
     },
 
     _onFail: function (message) {
         alert(message);
     }
+}
+
+function insertimg(img) {
+    var res = img.split("^");
+    for (i = 0; i < res.length; i++) {
+        var div = '<div class="ULimgholder ULimg' + i + '" onclick="insertimg("' + res(i) + '")"> </div>';
+        $(".ULimgcnt").prepend(div);
+
+}
 }
