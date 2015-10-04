@@ -64,20 +64,21 @@ function opengallery() {
 
 function insertimg() {
 
+    localStorage.setItem("imgcnt", "asdfads^sdfsf^asdfjb^sadkjfb^jksbdf");
+
     var img = localStorage.getItem("imgcnt");
+
     var res = img.split("^");
-    alert(res.length);
+
     for (i = 0; i < res.length; i++) {
-        alert("entry");
-        var div = '<img class="ULimgholder ULimg' + i + '" onclick="insertimg("' + res(i) + '")></img>';
-        alert("1");
+
+        var div = '<img class="ULimgholder ULimg';
+        var div = div.concat(i, '" onclick="insertimg("', res[i], '")></img>');
+
         $(".ULimgcnt").prepend(div);
-        alert("2");
         var smallImage = document.getElementById('ULimg' + i);
+
+        smallImage.src = res[i];
         alert("3");
-        smallImage.src = res(i);
-        alert("4");
-
-
     }
 }
