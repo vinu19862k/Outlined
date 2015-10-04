@@ -110,9 +110,9 @@ cameraApp.prototype = {
         // Show the captured photo.
         var img = localStorage.getItem("imgcnt");
         if (img != null) {
-            localStorage.setItem("imgcnt") = localStorage.getItem("imgcnt") + "^" + imageURI;
+            localStorage.setItem("imgcnt", localStorage.getItem("imgcnt") + "^" + imageURI);
         } else {
-            localStorage.setItem("imgcnt") = imageURI;
+            localStorage.setItem("imgcnt", imageURI);
         }
         alert(localStorage.getItem("imgcnt"));
 
