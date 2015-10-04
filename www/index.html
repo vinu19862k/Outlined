@@ -8,15 +8,28 @@
     <link rel="stylesheet" href="css/spectrum.css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-<script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
 </head>
 
 <body class="body">
 
     <div class="tools" style="background-image: url(img/brillant.png); background-repeat: repeat;">
         <div id="canvas" class="canvas">
-            <button class="button dh" id="getPhotoFromLibraryButton">Select from Photo Library</button>
-            <a href="Camera.html">Link</a>
+            <div class="content">
+                <div class="action-area ch50">
+                    <button class="button dh" id="capturePhotoButton">Take Photo</button>
+                    <button class="button dh" id="capturePhotoEditButton">Take Editable Photo (iOS only)</button>
+                    <button class="button dh" id="getPhotoFromLibraryButton">Select from Photo Library</button>
+                    <button class="button dh" id="getPhotoFromAlbumButton">Select from Photo Album</button>
+                </div>
+                <div class="result-area ch50">
+                    <div class="results">
+                        <div class="desc">Note: Photo Library and Photo Album display the same photo album on Android.</div>
+                        <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
+                    </div>
+                    <div class="separator"></div>
+                </div>
+            </div>
         </div>
 
 
@@ -117,7 +130,7 @@
             </div>
         </div>
 
-<!--        <script src="js/phonegap.js"></script>-->
+        <!--        <script src="js/phonegap.js"></script>-->
         <script src="js/jquery.js"></script>
         <script src="js/iscroll.js"></script>
         <script src="js/tools.js"></script>
@@ -126,7 +139,6 @@
             function opengallery() {
                 $('#gallerybtn').click();
             }
-
 
         </script>
 
