@@ -65,8 +65,11 @@ function insertimg() {
     var img = localStorage.getItem("imgcnt");
     var res = img.split("^");
     for (i = 0; i < res.length; i++) {
-        var div = '<div class="ULimgholder ULimg' + i + '" onclick="insertimg("' + res(i) + '")"> </div>';
+        var div = '<img class="ULimgholder ULimg' + i + '" onclick="insertimg("' + res(i) + '")></img>';
         $(".ULimgcnt").prepend(div);
+        var smallImage = document.getElementById('ULimg' + i);
+        smallImage.src = res(i);
+
 
     }
 }
