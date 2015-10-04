@@ -80,7 +80,6 @@ function addimg(e) {
     var i = $('.canvasimg').length + 1;
     var div = '<div class="canvasimg img';
     var div = div.concat(i, '"></div>');
-
     $(".canvas").append(div);
     e = "url(" + e + ")";
     div = ".img" + i;
