@@ -58,15 +58,3 @@ function fillbgimg(id) {
 }
 
 
-function set() {
-    localStorage.setItem("Name", "Bob");
-    localStorage.setItem("Job", "Developer");
-    localStorage.setItem("Address", "123 html5 street");
-    localStorage.setItem("Phone", "0123456789");
-    alert(localStorage.getItem("Name"));
-}
-
-function get() {
-    alert(localStorage.getItem("Name"));
-
-}
