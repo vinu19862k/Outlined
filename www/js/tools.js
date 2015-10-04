@@ -67,7 +67,7 @@ function insertimg() {
     var res = img.split("^");
     for (i = 0; i < res.length; i++) {
         var div = '<img class="ULimgholder ULimg';
-        var div = div.concat(i, '" onclick="insertimg("', res[i], '")src="', res[i], '></img>');
+        var div = div.concat(i, '" onclick="insertimg("', res[i], '")src="', res[i], '"></img>');
         alert(div);
         $(".ULimgcnt").prepend(div);
 
