@@ -126,11 +126,3 @@ cameraApp.prototype = {
     }
 }
 
-function insertimg(img) {
-    var res = img.split("^");
-    for (i = 0; i < res.length; i++) {
-        var div = '<div class="ULimgholder ULimg' + i + '" onclick="insertimg("' + res(i) + '")"> </div>';
-        $(".ULimgcnt").prepend(div);
-
-}
-}
