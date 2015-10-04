@@ -229,7 +229,6 @@ html,
     cursor: pointer;
 }
 .canvasimg {
-    border: dotted .5px;
     background-repeat: no-repeat;
     background-size: contain;
     height: 100px;
