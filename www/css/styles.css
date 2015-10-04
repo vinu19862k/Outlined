@@ -63,7 +63,7 @@ html,
     height: 65px;
     /*    border: solid .5px;*/
     background: #fff;
-    position: inherit;
+    position: absolute;
     /*
     background-image: url(img/brillant.png);
     background-repeat: repeat;
