@@ -77,10 +77,9 @@ function insertimg() {
 }
 
 function addimg(e) {
-    alert(e);
-    var div = '<div class="canvasimg"></div>';
+    var i = $('.canvasimg').length + 1;
+    var div = '<div class="canvasimg img"' + i + '></div>';
     $(".canvas").append(div);
     e = "url(" + e + ")";
-    $(".canvasimg").css('background-image', e);
-
+    $(".img" + i).css('background-image', e);
 }
