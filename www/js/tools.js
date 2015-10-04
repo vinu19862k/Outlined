@@ -63,14 +63,14 @@ function opengallery() {
 }
 
 function insertimg() {
+    $(".ULimgcnt").empty();
     var img = localStorage.getItem("imgstr");
     var res = img.split("^");
     for (i = 0; i < res.length; i++) {
         var div = '<img class="ULimgholder ULimg';
         var div = div.concat(i, '" onclick="insertimg("', res[i], '")></img>');
-        alert(div);
         var imgid = ".ULimg" + i;
         $(".ULimgcnt").prepend(div);
-        $(imgid).attr("src",res[i]);
+        $(imgid).attr("src", res[i]);
     }
 }
