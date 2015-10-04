@@ -78,8 +78,10 @@ function insertimg() {
 
 function addimg(e) {
     var i = $('.canvasimg').length + 1;
-    var div = '<div class="canvasimg img"' + i + '></div>';
+    var div = '<div class="canvasimg img"';
+    var div = div.concat(i, '></div>');
     $(".canvas").append(div);
     e = "url(" + e + ")";
-    $(".img" + i).css('background-image', e);
+    div = ".img" + i;
+    $(div).css('background-image', e);
 }
