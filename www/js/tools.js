@@ -68,9 +68,16 @@ function insertimg() {
     var res = img.split("^");
     for (i = 0; i < res.length; i++) {
         var div = '<img class="ULimgholder ULimg';
-        var div = div.concat(i, '" onclick="insertimg("', res[i], '")></img>');
+        var div = div.concat(i, '" onclick="addimg("', res[i], '")></img>');
         var imgid = ".ULimg" + i;
         $(".ULimgcnt").prepend(div);
         $(imgid).attr("src", res[i]);
     }
+}
+
+function addimg(e) {
+    var div = '<div class="canvasimg"></div>';
+    $(".canvas").append(div);
+    $(".canvasimg").css('background-image', e);
+
 }
