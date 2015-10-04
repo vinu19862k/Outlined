@@ -61,7 +61,8 @@ function opengallery() {
     $('#getPhotoFromLibraryButton').click();
 }
 
-function insertimg(img) {
+function insertimg() {
+    var img = localStorage.getItem("imgcnt");
     var res = img.split("^");
     for (i = 0; i < res.length; i++) {
         var div = '<div class="ULimgholder ULimg' + i + '" onclick="insertimg("' + res(i) + '")"> </div>';
