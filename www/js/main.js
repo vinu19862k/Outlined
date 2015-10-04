@@ -104,9 +104,9 @@ cameraApp.prototype = {
     },
 
     _onPhotoURISuccess: function (imageURI) {
-        var smallImage = document.getElementById('smallImage');
-        smallImage.style.display = 'block';
-
+        //        var smallImage = document.getElementById('smallImage');
+        //        smallImage.style.display = 'block';
+        alert("sd");
         // Show the captured photo.
         var img = localStorage.getItem("imgcnt");
         if (img != null) {
@@ -116,7 +116,7 @@ cameraApp.prototype = {
         }
         alert(localStorage.getItem("imgcnt"));
 
-        smallImage.src = imageURI;
+        //        smallImage.src = imageURI;
     },
 
     _onFail: function (message) {
