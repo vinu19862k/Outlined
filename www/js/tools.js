@@ -61,3 +61,15 @@ function handleMove(event) {
     // Get a reference to our coordinates div
     alert(x);
 }
+
+function set() {
+    localStorage.setItem("Name", "Bob");
+    localStorage.setItem("Job", "Developer");
+    localStorage.setItem("Address", "123 html5 street");
+    localStorage.setItem("Phone", "0123456789");
+}
+
+function set() {
+    alert(localStorage.getItem("Name"));
+
+}
