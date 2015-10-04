@@ -12,8 +12,123 @@
 </head>
 
 <body>
-<button class="button dh" id="getPhotoFromLibraryButton">Select from Photo Library</button>
 
+    <div class="tools" style="background-image: url(img/brillant.png); background-repeat: repeat;">
+        <div id="canvas" class="canvas">
+            <button class="button dh" id="getPhotoFromLibraryButton">Select from Photo Library</button>
+            <a href="Camera.html">Link</a>
+        </div>
+
+        <!--Tools Submenu Section-->
+        <div id="toolsubmenu" class="toolsubmenu">
+            <div class="toolsBG toolscnt">
+                <div class="BGColorchoser">
+                    <div class="colorcnt">
+                        <div style="margin-bottom:15px; font-size: 14px;">Colours</div>
+                        <div class="clrcnt" style="border:none; width:60px; padding-left:25px; border-radius:none; box-shadow:none">
+                            <!-- colorpicker element -->
+                            <div class="preview"></div>
+                            <div class="colorpicker" style="display:none">
+                                <canvas id="picker" var="3" width="100" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div class="clrcnt" style="background: #ffffff;" onclick="clrchange('#ffffff')"></div>
+                        <div class="clrcnt" style="background: #000000;" onclick="clrchange('#000000')"></div>
+                        <div class="clrcnt" style="background: #1abc9c;" onclick="clrchange('#1abc9c')"></div>
+                        <div class="clrcnt" style="background: #2ecc71;" onclick="clrchange('#2ecc71')"></div>
+                        <div class="clrcnt" style="background: #3498db;" onclick="clrchange('#3498db')"></div>
+                        <div class="clrcnt" style="background: #f95151;" onclick="clrchange('#f95151')"></div>
+                        <div class="clrcnt" style="background: #e67e22;" onclick="clrchange('#e67e22')"></div>
+                        <div class="clrcnt" style="background: #f9e35f;" onclick="clrchange('#f9e35f')"></div>
+                    </div>
+                    <div class="BGimgcnt">
+                        <div style="margin-bottom:15px; font-size: 14px;">Images</div>
+                        <div class="imgholder bgimg1" onclick="fillbgimg('bgimg1')"> </div>
+                        <div class="imgholder bgimg2" onclick="fillbgimg('bgimg2')"> </div>
+                        <div class="imgholder bgimg3" onclick="fillbgimg('bgimg3')"> </div>
+                        <div class="imgholder bgimg4" onclick="fillbgimg('bgimg4')"> </div>
+                        <div class="imgholder bgimg5" onclick="fillbgimg('bgimg5')"> </div>
+                        <div class="imgholder bgimg6" onclick="fillbgimg('bgimg6')"> </div>
+                        <div class="imgholder bgimg7" onclick="fillbgimg('bgimg7')"> </div>
+                        <div class="imgholder bgimg8" onclick="fillbgimg('bgimg8')"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="toolsIMG toolscnt">
+                <div class="IMGchooser">
+                    <div class="tooltabs">
+                        Gallery
+                    </div>
+                    <div class="tooltabs">
+                        Library
+                    </div>
+                    <div class="IMGupload">
+
+                        <button class="button dh" id="getPhotoFromLibraryButton">Select from Photo Library</button>
+                        <!--                        <input type="file" class="gallerybtn" style="display:none" onchange="previewFile()" id="gallerybtn" />-->
+                        </br>
+                        </br>
+                        Click on the box below to select a image from the gallery
+                        </br>
+                        </br>
+                        <div class="menuimgcnt" style="background-image: url(img/images.png); width:60px; height:60px; cursor:pointer" onclick="opengallery()"></div>
+
+                        <div class="ULimgcnt">
+                            <div class="ULimgholder ULimg1" onclick="fillbgimg('bgimg1')"> </div>
+                            <div class="ULimgholder ULimg2" onclick="fillbgimg('bgimg2')"> </div>
+                            <div class="ULimgholder ULimg3" onclick="fillbgimg('bgimg3')"> </div>
+                            <div class="ULimgholder ULimg4" onclick="fillbgimg('bgimg4')"> </div>
+                            <div class="ULimgholder ULimg5" onclick="fillbgimg('bgimg5')"> </div>
+                            <div class="ULimgholder ULimg6" onclick="fillbgimg('bgimg6')"> </div>
+                            <div class="ULimgholder ULimg7" onclick="fillbgimg('bgimg7')"> </div>
+                            <div class="ULimgholder ULimg8" onclick="fillbgimg('bgimg8')"> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="toolsTXT toolscnt">
+
+            </div>
+            <div class="toolsSHP toolscnt">
+
+            </div>
+        </div>
+
+
+        <!--Footer Section-->
+        <div id="footer" class="footer" style="background-image: url(img/brillant.png); background-repeat: repeat;">
+            <div class="menucnt" onclick="BG()">
+                <div class="menuimgcnt" style="background-image: url(img/background.png);"></div>
+                <span>Background</span>
+            </div>
+            <div class="menucnt" onclick="IMG()">
+                <div class="menuimgcnt" style="background-image: url(img/images.png);"></div>
+                <span>Images</span>
+            </div>
+            <div class="menucnt" onclick="TXT()">
+                <div class="menuimgcnt" style="background-image: url(img/text.png);"></div>
+                <span>Text</span>
+            </div>
+            <div class="menucnt" onclick="SHP()">
+                <div class="menuimgcnt" style="background-image: url(img/shapes.png);"></div>
+                <span>Shapes</span>
+            </div>
+        </div>
+
+        <!--        <script src="js/phonegap.js"></script>-->
+        <script src="js/jquery.js"></script>
+        <script src="js/iscroll.js"></script>
+        <script src="js/tools.js"></script>
+        <script src="js/script.js"></script>
+        <script>
+            function opengallery() {
+                $('#gallerybtn').click();
+            }
+
+        </script>
+
+    </div>
 </body>
 
 </html>
