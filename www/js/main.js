@@ -113,8 +113,10 @@ cameraApp.prototype = {
         if (img != null) {
             img = imageURI + "^" + img
             localStorage.setItem("imgcnt", img);
+            insertimg();
         } else {
             localStorage.setItem("imgcnt", imageURI);
+            insertimg();
         }
 
 
