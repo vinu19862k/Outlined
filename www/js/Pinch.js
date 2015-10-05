@@ -32,7 +32,7 @@
                  ev.preventDefault();
              });
          }
-         if (document.querySelector("#test")) {
+         if (document.querySelector(".test")) {
              __webpack_require__(1);
          }
          __webpack_require__(2);
@@ -44,7 +44,7 @@
              };
          })();
          var screen = document.querySelector(".canvas");
-         var el = document.querySelector("#test");
+         var el = document.querySelector(".test");
          var START_X = Math.round((screen.offsetWidth - el.offsetWidth) / 2);
          var START_Y = Math.round((screen.offsetHeight - el.offsetHeight) / 2);
 
