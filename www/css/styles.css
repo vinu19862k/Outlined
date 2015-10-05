@@ -26,7 +26,7 @@ html,
 */
     position: absolute;
 }
-.resize{
+.resize {
     border: dotted 2px;
 }
 .divider {
@@ -239,11 +239,15 @@ html,
 .canvasimg {
     background-repeat: no-repeat;
     background-size: contain;
-    height: 200px;
+    min-height: 200px;
     top: 20px;
     left: 20px;
-    width: 200px;
+    min-width: 200px;
     position: absolute;
-
 }
-
+.animate {
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: auto;
+    min-width: auto;
+}

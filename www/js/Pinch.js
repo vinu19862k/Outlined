@@ -2581,12 +2581,7 @@ function check() {
                 //                    el.innerText = ev.type;
             }
 
-            function resetElement() {
-
-                el.className = 'animate';
-
-                //                    requestElementUpdate();
-            }
+            function resetElement() {}
 
             function updateElementTransform() {
                 var value = [
