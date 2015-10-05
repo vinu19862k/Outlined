@@ -241,4 +241,5 @@ html,
     left: 20px;
     width: 100px;
     position: absolute;
+    border: solid 1px;
 }
