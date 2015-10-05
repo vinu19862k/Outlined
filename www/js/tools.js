@@ -58,8 +58,13 @@ function fillbgimg(id) {
     hideall();
 }
 
-function opengallery() {
-    $('#getPhotoFromLibraryButton').click();
+function opengallery(e) {
+    if (e == "gallery") {
+
+        $('#getPhotoFromLibraryButton').click();
+    } else {
+        $('#capturePhotoButton').click();
+    }
 }
 
 function insertimg() {

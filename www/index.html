@@ -64,13 +64,15 @@
                     Library
                 </div>
                 <div class="IMGupload">
-                    <button class="button dh" id="getPhotoFromLibraryButton" style="display:none">Select from Photo Library</button>
+                    <button class="button dh" id="getPhotoFromLibraryButton" style="display:none"></button>
+                    <button class="button dh" id="capturePhotoButton" style="display:none"></button>
                     </br>
                     </br>
-                    Click on the box below to select a image from the gallery
+                    Click below to select a image from the gallery or take picture using camera.
                     </br>
                     </br>
-                    <div class="menuimgcnt" style="background-image: url(img/images.png); width:60px; height:60px; cursor:pointer" onclick="opengallery()"></div>
+                    <div class="menuimgcnt" style="background-image: url(img/images.png); width:60px; height:60px; cursor:pointer; margin: 10px;float:left" onclick="opengallery('gallery')"></div>
+                    <div class="menuimgcnt" style="background-image: url(img/cameraicon.png); width:60px; height:60px; cursor:pointer; margin: 10px; float:left" onclick="opengallery('camera')"></div>
 
                     <div class="ULimgcnt" id="ULimgcnt">
 

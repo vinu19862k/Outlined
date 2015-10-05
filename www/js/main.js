@@ -24,9 +24,9 @@ cameraApp.prototype = {
         var that = this;
         that._pictureSource = navigator.camera.PictureSourceType;
         that._destinationType = navigator.camera.DestinationType;
-        //	    id("capturePhotoButton").addEventListener("click", function(){
-        //            that._capturePhoto.apply(that,arguments);
-        //        });
+        id("capturePhotoButton").addEventListener("click", function () {
+            that._capturePhoto.apply(that, arguments);
+        });
         //	    id("capturePhotoEditButton").addEventListener("click", function(){
         //            that._capturePhotoEdit.apply(that,arguments)
         //        });
@@ -96,11 +96,20 @@ cameraApp.prototype = {
     },
 
     _onPhotoDataSuccess: function (imageData) {
-        var smallImage = document.getElementById('smallImage');
-        smallImage.style.display = 'block';
 
-        // Show the captured photo.
-        smallImage.src = "data:image/jpeg;base64," + imageData;
+
+        var imageURI = "data:image/jpeg;base64," + imageData;
+
+        var img = localStorage.getItem("imgstr");
+
+        if (img != null) {
+            img = img + "^" + imageURI
+            localStorage.setItem("imgstr", img);
+            insertimg();
+        } else {
+            localStorage.setItem("imgstr", imageURI);
+            insertimg();
+        }
     },
 
     _onPhotoURISuccess: function (imageURI) {
