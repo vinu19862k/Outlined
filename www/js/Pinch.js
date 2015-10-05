@@ -2477,6 +2477,7 @@
 })(window, document, 'Hammer');
 
 function check() {
+
     (function (modules) {
         var installedModules = {};
 
@@ -2524,8 +2525,9 @@ function check() {
             })();
             var screen = document.querySelector(".canvas");
             var el = document.querySelector(".resize");
-            var START_X = el.offsetWidth;
-            var START_Y = el.offsetHeight;
+
+            var START_X = (screen.offsetWidth - el.offsetWidth) / 4;
+            var START_Y = (screen.offsetHeight - el.offsetHeight) / 4;
 
             var ticking = false;
             var transform;
@@ -2609,12 +2611,11 @@ function check() {
             }
 
             function onPan(ev) {
-                el.className = '';
+                //                el.className = '';
                 transform.translate = {
                     x: START_X + ev.deltaX,
                     y: START_Y + ev.deltaY
                 };
-
                 logEvent(ev);
                 requestElementUpdate();
             }
