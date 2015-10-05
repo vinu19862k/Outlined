@@ -112,19 +112,6 @@ html,
     background: #fff;
     display: none;
 }
-.editmenu{
-     width: 99%;
-    height: 40px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: solid .5px;
-    bottom: 65px;
-    position: fixed;
-    z-index: 1000;
-    background: #000;
-/*    display: none;*/
-}
 .toolsBG {
     width: 100%;
     height: 240px;
@@ -258,4 +245,26 @@ html,
     min-width: 200px;
     position: absolute;
 }
-
+.editmenu {
+    width: 99%;
+    height: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: solid .5px;
+    bottom: 65px;
+    position: fixed;
+    z-index: 1000;
+    background: #000;
+    padding: 2px;
+    /*    display: none;*/
+}
+.editcnt {
+    width: 36px;
+    height: 36px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    background: #e3ee3e;
+}
