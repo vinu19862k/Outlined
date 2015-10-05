@@ -81,6 +81,13 @@ function insertimg() {
     }
 }
 
+function select(e) {
+    hideall();
+    $(".resize").removeClass("resize");
+    $(e).addClass("resize");
+    check();
+}
+
 function addimg(e) {
     var i = $('.canvasimg').length + 1;
     var div = '<div class="canvasimg img';

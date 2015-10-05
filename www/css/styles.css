@@ -112,6 +112,19 @@ html,
     background: #fff;
     display: none;
 }
+.editmenu{
+     width: 99%;
+    height: 40px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: solid .5px;
+    bottom: 65px;
+    position: fixed;
+    z-index: 1000;
+    background: #000;
+/*    display: none;*/
+}
 .toolsBG {
     width: 100%;
     height: 240px;
