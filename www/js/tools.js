@@ -89,6 +89,6 @@ function addimg(e) {
     e = "url(" + e + ")";
     div = ".img" + i;
     $(div).css('background-image', e);
-//    $(div).draggable();
-    $(div).resizable();
+    $(div).draggable();
+
 }
