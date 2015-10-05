@@ -245,9 +245,4 @@ html,
     min-width: 200px;
     position: absolute;
 }
-.animate {
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-height: auto;
-    min-width: auto;
-}
+
