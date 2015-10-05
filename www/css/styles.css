@@ -239,13 +239,11 @@ html,
 .canvasimg {
     background-repeat: no-repeat;
     background-size: contain;
-    height: 100px;
+    height: 200px;
     top: 20px;
     left: 20px;
-    width: 100px;
+    width: 200px;
     position: absolute;
-    border: dotted 1px;
+
 }
-.canvasimg:focus {
-    border: solid 1px;
-}
+

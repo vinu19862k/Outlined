@@ -89,6 +89,5 @@ function addimg(e) {
     e = "url(" + e + ")";
     div = ".img" + i;
     $(div).css('background-image', e);
-    $(div).draggable();
     $(div).attr("onclick", "select('this')");
 }
