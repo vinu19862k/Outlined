@@ -104,7 +104,7 @@ html,
     border-radius: 5px;
     border: solid .5px;
     bottom: 65px;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     background: #fff;
     display: none;
