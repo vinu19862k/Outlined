@@ -204,9 +204,9 @@ html,
     height: 208px;
     text-align: center;
     display: inline-block;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-bottom: 5px;
-    margin-top: -10px;
+    margin-top: 0px;
     float: left;
     font-size: 11px;
     overflow-y: scroll;
