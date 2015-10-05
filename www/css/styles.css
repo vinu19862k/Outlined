@@ -241,5 +241,9 @@ html,
     left: 20px;
     width: 100px;
     position: absolute;
+    border: dotted 1px;
+}
+.canvasimg:focus {
+
     border: solid 1px;
 }
