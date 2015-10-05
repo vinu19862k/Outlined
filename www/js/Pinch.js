@@ -2622,7 +2622,7 @@ function check() {
                     initScale = transform.scale || 1;
                 }
 
-                el.className = '';
+//                el.className = '';
                 transform.scale = initScale * ev.scale;
                 logEvent(ev);
                 requestElementUpdate();
@@ -2635,7 +2635,7 @@ function check() {
                     initAngle = transform.angle || 0;
                 }
 
-                el.className = '';
+//                el.className = '';
                 transform.rz = 1;
                 transform.angle = initAngle + ev.rotation;
 
