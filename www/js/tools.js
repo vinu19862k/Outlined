@@ -84,6 +84,15 @@ function insertimg() {
 function select(e) {
     hideall();
     $(".resize").removeClass("resize");
+    var type = $(e).data("type").first;
+    var id = $(e).data("type").last;
+
+    switch (type) {
+        case "img":
+            $('.editimgmenu').show(300);
+            $('.editimgmenu').removeData("id");
+            $('.editimgmenu').data("id", id);
+    }
     $(e).addClass("resize");
     check();
 }
@@ -97,4 +106,32 @@ function addimg(e) {
     div = ".img" + i;
     $(div).css('background-image', e);
     $(div).attr("onclick", "select(this)");
+    $(div).data("type", {
+        first: "img",
+        last: div
+    });
+}
+
+function sendback(e) {
+    var id = $('.editimgmenu').data("id");
+    var index = 0;
+    index = $(id).css('z-index');
+    if (index == "auto") {
+        index = -1;
+    } else {
+        index = Number(index) - 1;
+    }
+    $(id).css('z-index', index);
+}
+
+function bringfront(e) {
+    var id = $('.editimgmenu').data("id");
+    var index = 0;
+    index = $(id).css('z-index');
+    if (index == "auto") {
+        index = 1;
+    } else {
+        index = Number(index) + 1;
+    }
+    $(id).css('z-index', index);
 }
