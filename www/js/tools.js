@@ -137,21 +137,69 @@ function bringfront(e) {
     $(id).css('z-index', index);
 }
 
-function Align(e, pos) {
+function showalign() {
+    $('.snap').show();
     var id = $('.editimgmenu').data("id");
-    var $div = $('.canvas');
-    //    alert(pos);
+    var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
+    $(id).css('left', rt);
+    var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
+    $(id).css('top', ht);
+    $(id).css('transform', 'none');
+}
+
+function snap(pos) {
+    var id = $('.editimgmenu').data("id");
     switch (pos) {
-        case "Left":
+        case "topleft":
             $(id).css('left', 0);
+            $(id).css('top', 0);
+            $(id).css('transform', 'none');
+            //            $('.snap').hide();
             break;
-        case "Center":
-           var rt = ($('.canvas').innerWidth()/2) - ($(id).outerWidth()/2);
+        case "topcenter":
+            var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
             $(id).css('left', rt);
+            $(id).css('top', 0);
+            $(id).css('transform', 'none');
             break;
-        case "Right":
+        case "topright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
+            $(id).css('top', 0);
+            $(id).css('transform', 'none');
+            break;
+        case "centerleft":
+            $(id).css('left', 0);
+            var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
+            $(id).css('top', ht);
+            $(id).css('transform', 'none');
+            break;
+        case "centerright":
+            var rt = $('.canvas').innerWidth() - $(id).outerWidth();
+            $(id).css('left', rt);
+            var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
+            $(id).css('top', ht);
+            $(id).css('transform', 'none');
+            break;
+        case "bottomleft":
+            $(id).css('left', 0);
+            var ht = $('.canvas').innerHeight() - $(id).outerHeight();
+            $(id).css('top', ht);
+            $(id).css('transform', 'none');
+            break;
+        case "bottomcenter":
+            var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
+            $(id).css('left', rt);
+            var ht = $('.canvas').innerHeight() - $(id).outerHeight();
+            $(id).css('top', ht);
+            $(id).css('transform', 'none');
+            break;
+        case "bottomright":
+            var rt = $('.canvas').innerWidth() - $(id).outerWidth();
+            $(id).css('left', rt);
+            var ht = $('.canvas').innerHeight() - $(id).outerHeight();
+            $(id).css('top', ht);
+            $(id).css('transform', 'none');
             break;
     }
 

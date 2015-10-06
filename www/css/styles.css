@@ -65,8 +65,8 @@ html,
 }
 .canvas {
     margin: 40px 5% 0px 5%;
-    width: 90%;
-    height: 478px;
+    width: 330px;
+    height: 480px;
     border: solid 1px;
     background: #fff;
     position: absolute;
@@ -76,6 +76,32 @@ html,
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: -1000;
+}
+.snap {
+    display: none;
+}
+.snaptop {
+    border-top: solid 3px #000;
+    margin-top: 30px;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+.snapcenter {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top: calc(40px - 15px + 240px);
+}
+.snapbottom {
+    position: fixed;
+    width: 30px;
+    border-bottom: solid 3px #000;
+    height: 30px;
+    float: left;
+    margin-top: calc(40px - 20px + 480px);
 }
 .footer {
     width: 100%;
@@ -268,12 +294,11 @@ html,
     z-index: 1000;
     background: #ECEDF1;
     padding: 2px;
-/*    display: none;*/
-
+    /*    display: none;*/
 }
 .editcnt {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
