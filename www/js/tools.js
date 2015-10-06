@@ -124,6 +124,7 @@ function sendback(e) {
     $(id).css('z-index', index);
 }
 
+
 function bringfront(e) {
     var id = $('.editimgmenu').data("id");
     var index = 0;
@@ -134,4 +135,17 @@ function bringfront(e) {
         index = Number(index) + 1;
     }
     $(id).css('z-index', index);
+}
+
+function Align(e, pos) {
+    var id = $('.editimgmenu').data("id");
+    switch (pos) {
+        case "Left":
+            $(id).offset({left: 0} );
+        case "Center":
+            $(id).css('left', 0);
+        case "Right":
+            $(id).css('right', 0);
+    }
+
 }
