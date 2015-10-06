@@ -75,7 +75,6 @@
                     </br>
                     <div class="menuimgcnt" style="background-image: url(img/images.png); width:60px; height:60px; cursor:pointer; margin: 10px;float:left" onclick="opengallery('gallery')"></div>
                     <div class="menuimgcnt" style="background-image: url(img/cameraicon.png); width:60px; height:60px; cursor:pointer; margin: 10px; float:left" onclick="opengallery('camera')"></div>
-
                     <div class="ULimgcnt" id="ULimgcnt">
 
                     </div>
@@ -108,7 +107,10 @@
         </div>
     </div>
 
-    <div id="editmenu" class="editmenu"></div>
+    <div id="editmenu" class="editimgmenu">
+        <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
+        <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
+    </div>
     <!--Footer Section-->
     <div id="footer" class="footer" style="background-image: url(img/brillant.png); background-repeat: repeat;">
         <div class="menucnt" onclick="BG()">
