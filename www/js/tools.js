@@ -139,13 +139,20 @@ function bringfront(e) {
 
 function Align(e, pos) {
     var id = $('.editimgmenu').data("id");
+    var $div = $('.canvas');
+    //    alert(pos);
     switch (pos) {
         case "Left":
-            $(id).offset({left: 0} );
-        case "Center":
             $(id).css('left', 0);
+            break;
+        case "Center":
+           var rt = ($('.canvas').innerWidth()/2) - ($(id).outerWidth()/2);
+            $(id).css('left', rt);
+            break;
         case "Right":
-            $(id).css('right', 0);
+            var rt = $('.canvas').innerWidth() - $(id).outerWidth();
+            $(id).css('left', rt);
+            break;
     }
 
 }
