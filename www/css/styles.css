@@ -249,11 +249,11 @@ html,
 }
 .canvasimg {
     background-repeat: no-repeat;
-    background-size: contain;
-    min-height: 20px;
+    background-size: cover;
+    min-height: 200px;
     top: 20px;
     left: 20px;
-    min-width: 20px;
+    min-width: 100px;
     position: absolute;
 }
 .editimgmenu {
