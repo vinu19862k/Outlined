@@ -1,5 +1,5 @@
 function BG() {
-    $('.editimgmenu').hide(200);
+    $('.editmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsBG').show();
@@ -15,7 +15,7 @@ function BG() {
 }
 
 function IMG() {
-    $('.editimgmenu').hide(200);
+    $('.editmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsIMG').show();
@@ -24,7 +24,7 @@ function IMG() {
 }
 
 function TXT() {
-    $('.editimgmenu').hide(200);
+    $('.editmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsTXT').show();
@@ -32,7 +32,7 @@ function TXT() {
 }
 
 function SHP() {
-    $('.editimgmenu').hide(200);
+    $('.editmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsSHP').show();
@@ -42,7 +42,7 @@ function SHP() {
 function hideall() {
     $('.toolsubmenu').hide(200);
     $('.toolscnt').hide();
-    $('.editimgmenu').hide(200);
+    $('.editmenu').hide(200);
 
 }
 
@@ -95,8 +95,8 @@ function select(e) {
     switch (type) {
         case "img":
             $('.editimgmenu').show(300);
-            $('.editimgmenu').removeData("id");
-            $('.editimgmenu').data("id", id);
+            $('.editmenu').removeData("id");
+            $('.editmenu').data("id", id);
     }
     $(e).addClass("resize");
     check();
@@ -113,12 +113,15 @@ function addimg(e) {
     $(div).attr("onclick", "select(this)");
     $(div).data("type", {
         first: "img",
-        last: div
+        last: div,
+
     });
+    $(div).data("value", "")
 }
 
 function sendback(e) {
-    var id = $('.editimgmenu').data("id");
+    var id = $('.editmenu').data("id");
+    alert(id);
     var index = 0;
     index = $(id).css('z-index');
     if (index == "auto") {
@@ -131,7 +134,7 @@ function sendback(e) {
 
 
 function bringfront(e) {
-    var id = $('.editimgmenu').data("id");
+    var id = $('.editmenu').data("id");
     var index = 0;
     index = $(id).css('z-index');
     if (index == "auto") {
@@ -144,21 +147,29 @@ function bringfront(e) {
 
 function showalign() {
     $('.snap').show();
+    var id = $('.editmenu').data("id");
     var data = $(id).data("value");
     var value = data.split(")");
-    var id = $('.editimgmenu').data("id");
     var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
-    data = 'translate3d(0px, 0px, 0), ' + value[2]
+    if (value.length = 2) {
+        data = 'translate3d(0px, 0px, 0), ' + value[1];
+    } else {
+        data = 'translate3d(0px, 0px, 0), ' + value[2];
+    }
+
     $(id).css('transform', data);
 }
 
 function snap(pos) {
-    var id = $('.editimgmenu').data("id");
+    var id = $('.editmenu').data("id");
     var data = $(id).data("value");
     var value = data.split(")");
+    if (value.length = 2) {
+        value[2] = value[1];
+    }
     switch (pos) {
         case "topleft":
             $(id).css('left', 0);
@@ -221,4 +232,9 @@ function snap(pos) {
             $(id).css('transform', value[2]);
             break;
     }
+}
+
+function deleteelement() {
+    var id = $('.editmenu').data("id");
+    $(id).remove();
 }
