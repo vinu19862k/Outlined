@@ -2624,10 +2624,12 @@ function check() {
                 }
 
                 //                el.className = '';
-                alert(ev.scale);
+//                alert(ev.scale);
 //                transform.scale = initScale * ev.scale;
-                el.offsetWidth = el.offsetWidth * ev.scale;
-                el.offsetWidth = el.offsetWidth * ev.scale;
+                $('".resize"').outerWidth($('".resize"').outerWidth() * ev.scale)
+                $('".resize"').outerHeight($('".resize"').outerHeight() * ev.scale)
+//                el.offsetWidth = el.offsetWidth * ev.scale;
+//                el.offsetWidth = el.offsetWidth * ev.scale;
                 logEvent(ev);
 //                requestElementUpdate();
             }
