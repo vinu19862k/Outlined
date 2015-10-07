@@ -139,23 +139,26 @@ function bringfront(e) {
 
 function showalign() {
     $('.snap').show();
+    var data = $(id).data("value");
+    var value = data.split(")");
     var id = $('.editimgmenu').data("id");
     var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
-    $(id).css('transform', 'translate3d(0px, 0px, 0)');
-    $(id).css('transform', value[2]);
+    data = 'translate3d(0px, 0px, 0), ' + value[2]
+    $(id).css('transform', data);
 }
 
 function snap(pos) {
     var id = $('.editimgmenu').data("id");
+    var data = $(id).data("value");
+    var value = data.split(")");
     switch (pos) {
         case "topleft":
             $(id).css('left', 0);
             $(id).css('top', 0);
             value[2] = value[2] + ")";
-
             $(id).css('transform', value[2]);
             break;
         case "topcenter":
@@ -208,6 +211,7 @@ function snap(pos) {
             $(id).css('left', rt);
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
+
             value[2] = value[2] + ")";
             $(id).css('transform', value[2]);
             break;
