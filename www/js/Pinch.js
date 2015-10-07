@@ -2552,7 +2552,7 @@ function check() {
 
             mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
             mc.add(new Hammer.Rotate({
-                threshold: 10
+                threshold: 0
             })).recognizeWith(mc.get('pan'));
             mc.add(new Hammer.Pinch({
                 threshold: 0
@@ -2619,8 +2619,8 @@ function check() {
                 var el = document.querySelector(".resize");
                 var width = el.clientWidth;
                 var height = el.clientHeight;
-                el.style.width = (width * (ev.scale)) + 'px';
-                el.style.height = (height * (ev.scale)) + 'px';
+                el.style.width = (width * ev.scale) + 'px';
+                el.style.height = (height * ev.scale) + 'px';
                 logEvent(ev);
             }
 
