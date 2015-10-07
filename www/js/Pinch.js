@@ -2594,7 +2594,6 @@ function check() {
                 el.style.webkitTransform = value;
                 el.style.mozTransform = value;
                 el.style.transform = value;
-                var el = document.querySelector(".resize");
                 var width = el.clientWidth;
                 var height = el.clientHeight;
                 el.style.width = (width * transform.scale) + 'px';
