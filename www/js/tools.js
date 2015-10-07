@@ -144,6 +144,7 @@ function showalign() {
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
+    $(id).css('transform', 'translate3d(0px, 0px, 0)');
     $(id).css('transform', value[2]);
 }
 
@@ -154,6 +155,7 @@ function snap(pos) {
             $(id).css('left', 0);
             $(id).css('top', 0);
             value[2] = value[2] + ")";
+
             $(id).css('transform', value[2]);
             break;
         case "topcenter":
