@@ -2621,7 +2621,7 @@ function check() {
                 var height = el.clientHeight;
                 el.style.width = (width * ev.scale) + 'px';
                 el.style.height = (height * ev.scale) + 'px';
-                logEvent(ev);
+                //logEvent(ev);
             }
 
             var initAngle = 0;
