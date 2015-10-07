@@ -2616,11 +2616,19 @@ function check() {
             }
 
             function onPinch(ev) {
-                var el = document.querySelector(".resize");
-                var width = el.clientWidth;
-                var height = el.clientHeight;
-                el.style.width = (width * ev.scale) + 'px';
-                el.style.height = (height * ev.scale) + 'px';
+//                var el = document.querySelector(".resize");
+//                var width = el.clientWidth;
+//                var height = el.clientHeight;
+//                el.style.width = (width * ev.scale) + 'px';
+//                el.style.height = (height * ev.scale) + 'px';
+                 if (ev.type == 'pinchstart') {
+                    initScale = transform.scale || 1;
+                }
+
+//                el.className = '';
+                transform.scale = initScale * ev.scale;
+                logEvent(ev);
+                requestElementUpdate();
                 //logEvent(ev);
             }
 
