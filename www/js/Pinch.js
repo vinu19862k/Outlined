@@ -1697,7 +1697,7 @@
          */
         defaults: {
             event: 'pinch',
-            threshold: 5,
+            threshold: 0,
             pointers: 2
         },
 
@@ -2619,8 +2619,8 @@ function check() {
                 var el = document.querySelector(".resize");
                 var width = el.clientWidth;
                 var height = el.clientHeight;
-                el.style.width = (width * ev.scale/2) + 'px';
-                el.style.height = (height * ev.scale/2) + 'px';
+                el.style.width = (width * ev.scale) + 'px';
+                el.style.height = (height * ev.scale) + 'px';
                 //logEvent(ev);
             }
 
