@@ -1,3 +1,5 @@
+//*************************** Tools Menu fucntions *****************\\
+
 function BG() {
     $('.editmenu').hide(200);
     $('.toolsubmenu').hide();
@@ -46,6 +48,8 @@ function hideall() {
 
 }
 
+//*************************** Background Menu fucntions *****************\\
+
 function clrchange(e) {
     $('.canvas').css('backgroundColor', e);
     hideall();
@@ -62,6 +66,8 @@ function fillbgimg(id) {
     $('.canvas').css('background-image', img);
     hideall();
 }
+
+//*************************** Images Menu fucntions *****************\\
 
 function opengallery(e) {
     if (e == "gallery") {
@@ -86,6 +92,24 @@ function insertimg() {
     }
 }
 
+function addimg(e) {
+    var i = $('.canvasimg').length + 1;
+    var div = '<div class="canvasimg img';
+    var div = div.concat(i, '"></div>');
+    $(".canvas").append(div);
+    e = "url(" + e + ")";
+    div = ".img" + i;
+    $(div).css('background-image', e);
+    $(div).attr("onclick", "select(this)");
+    $(div).data("type", {
+        first: "img",
+        last: div
+    });
+    $(div).data("value", "")
+}
+
+//*************************** Edit Menu fucntions *****************\\
+
 function select(e) {
     hideall();
     $(".resize").removeClass("resize");
@@ -102,23 +126,6 @@ function select(e) {
     check();
 }
 
-function addimg(e) {
-    var i = $('.canvasimg').length + 1;
-    var div = '<div class="canvasimg img';
-    var div = div.concat(i, '"></div>');
-    $(".canvas").append(div);
-    e = "url(" + e + ")";
-    div = ".img" + i;
-    $(div).css('background-image', e);
-    $(div).attr("onclick", "select(this)");
-    $(div).data("type", {
-        first: "img",
-        last: div,
-
-    });
-    $(div).data("value", "")
-}
-
 function sendback(e) {
     var id = $('.editmenu').data("id");
     alert(id);
@@ -131,7 +138,6 @@ function sendback(e) {
     }
     $(id).css('z-index', index);
 }
-
 
 function bringfront(e) {
     var id = $('.editmenu').data("id");
@@ -155,10 +161,11 @@ function showalign() {
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
     if (value.length = 2) {
-        data = 'translate3d(0px, 0px, 0), ' + value[1];
+        data = 'translate3d(0px, 0px, 0), ' + value[1] + ")";
     } else {
-        data = 'translate3d(0px, 0px, 0), ' + value[2];
+        data = 'translate3d(0px, 0px, 0), ' + value[2] + ")";
     }
+    $(id).css('transform', 'none');
 
     $(id).css('transform', data);
 }
