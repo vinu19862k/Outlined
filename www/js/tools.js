@@ -144,7 +144,7 @@ function showalign() {
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
-    $(id).css('transform', 'none');
+    $(id).css('transform', value[2]);
 }
 
 function snap(pos) {
