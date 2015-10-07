@@ -1,4 +1,5 @@
 function BG() {
+    $('.editimgmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsBG').show();
@@ -14,6 +15,7 @@ function BG() {
 }
 
 function IMG() {
+    $('.editimgmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsIMG').show();
@@ -22,6 +24,7 @@ function IMG() {
 }
 
 function TXT() {
+    $('.editimgmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsTXT').show();
@@ -29,6 +32,7 @@ function TXT() {
 }
 
 function SHP() {
+    $('.editimgmenu').hide(200);
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsSHP').show();
