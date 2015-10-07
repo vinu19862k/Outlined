@@ -2626,8 +2626,9 @@ function check() {
                 //                el.className = '';
 //                alert(ev.scale);
 //                transform.scale = initScale * ev.scale;
-                $('".resize"').outerWidth($('".resize"').outerWidth() * ev.scale)
-                $('".resize"').outerHeight($('".resize"').outerHeight() * ev.scale)
+                $('".resize"').outerWidth($('".resize"').outerWidth() * ev.scale);
+                $('".resize"').outerHeight($('".resize"').outerHeight() * ev.scale);
+                alert($('".resize"').outerHeight());
 //                el.offsetWidth = el.offsetWidth * ev.scale;
 //                el.offsetWidth = el.offsetWidth * ev.scale;
                 logEvent(ev);
