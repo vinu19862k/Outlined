@@ -195,12 +195,18 @@ function snap(pos) {
             $(id).css('transform', 'none');
             break;
         case "bottomright":
+            $(id).css('transform', "scale(2, 2)");
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
-            $(id).css('transform', 'none');
+//            $(id).css('transform', 'none');
+            var value = $(id).data("value").split(")");
+
+            value[0] = value[0] + ")";
+            alert(value[1]);
+            alert(value[2]);
+
             break;
     }
-
 }

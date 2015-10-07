@@ -2595,7 +2595,6 @@ function check() {
                 el.style.mozTransform = value;
                 el.style.transform = value;
                 ticking = false;
-                $(el).data("value", value);
 
             }
 
@@ -2623,11 +2622,8 @@ function check() {
                     initScale = transform.scale || 1;
                 }
 
-                //                el.className = '';
-                alert(ev.scale);
+//                el.className = '';
                 transform.scale = initScale * ev.scale;
-//                el.offsetWidth = el.offsetWidth * ev.scale;
-//                el.offsetWidth = el.offsetWidth * ev.scale;
                 logEvent(ev);
                 requestElementUpdate();
             }
@@ -2639,7 +2635,7 @@ function check() {
                     initAngle = transform.angle || 0;
                 }
 
-                //                el.className = '';
+//                el.className = '';
                 transform.rz = 1;
                 transform.angle = initAngle + ev.rotation;
 
@@ -2670,8 +2666,6 @@ function check() {
                 timer = setTimeout(function () {
                     //                        resetElement();
                 }, 200);
-
-                alert(el.offsetWidth);
 
                 logEvent(ev);
                 requestElementUpdate();
