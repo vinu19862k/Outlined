@@ -294,7 +294,7 @@ html,
     z-index: 1000;
     background: #ECEDF1;
     padding: 2px;
-    /*    display: none;*/
+    display: none;
 }
 .editcnt {
     width: 36px;

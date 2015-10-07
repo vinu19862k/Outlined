@@ -38,6 +38,7 @@ function SHP() {
 function hideall() {
     $('.toolsubmenu').hide(200);
     $('.toolscnt').hide();
+    $('.editimgmenu').hide(200);
 
 }
 
