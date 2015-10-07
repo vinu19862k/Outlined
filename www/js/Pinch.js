@@ -1697,7 +1697,7 @@
          */
         defaults: {
             event: 'pinch',
-            threshold: 0,
+            threshold: 1,
             pointers: 2
         },
 
