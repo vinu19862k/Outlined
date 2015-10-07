@@ -2556,7 +2556,7 @@ function check() {
             })).recognizeWith(mc.get('pan'));
             mc.add(new Hammer.Pinch({
                 threshold: 0
-            })).recognizeWith([mc.get('pan'), mc.get('rotate')]);
+            })).recognizeWith(mc.get('rotate'));
 
             mc.add(new Hammer.Tap({
                 event: 'doubletap',
