@@ -153,77 +153,61 @@ function snap(pos) {
         case "topleft":
             $(id).css('left', 0);
             $(id).css('top', 0);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "topcenter":
             var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
             $(id).css('left', rt);
             $(id).css('top', 0);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "topright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             $(id).css('top', 0);
             var value = $(id).data("value").split(")");
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "centerleft":
             $(id).css('left', 0);
             var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
             $(id).css('top', ht);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "centerright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
             $(id).css('top', ht);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "bottomleft":
             $(id).css('left', 0);
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "bottomcenter":
             var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
             $(id).css('left', rt);
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
         case "bottomright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
-            if (value != "undefined") {
-                value[2] = value[2] + ")";
-                $(id).css('transform', value[2]);
-            }
+            value[2] = value[2] + ")";
+            $(id).css('transform', value[2]);
             break;
     }
 }
