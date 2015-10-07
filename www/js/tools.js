@@ -108,6 +108,37 @@ function addimg(e) {
     $(div).data("value", "")
 }
 
+//*************************** Text Menu fucntions *****************\\
+function addtext(type) {
+
+    var i = $('.canvastxt').length + 1;
+    var div = '<div type="text" class="canvastxt txt';
+    var div = div.concat(i, '">Enter your text here</div>');
+    $(".canvas").append(div);
+    div = ".txt" + i;
+    $(div).attr("onclick", "select(this)");
+    $(div).data("type", {
+        first: "txt",
+        last: div
+    });
+    switch (type) {
+        case "txttitle":
+            e = "26pt";
+            break;
+        case "txtsubtitle1":
+            e = "22pt";
+            break;
+        case "txtsubtitle2":
+            e = "18pt";
+            break;
+        case "txtbody":
+            e = "14pt";
+            break;
+    }
+    $(div).css('font-size', e);
+    $(div).data("value", "")
+}
+
 //*************************** Edit Menu fucntions *****************\\
 
 function select(e) {
@@ -119,6 +150,10 @@ function select(e) {
     switch (type) {
         case "img":
             $('.editimgmenu').show(300);
+            $('.editmenu').removeData("id");
+            $('.editmenu').data("id", id);
+        case "txt":
+            $('.edittxtmenu').show(300);
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
     }

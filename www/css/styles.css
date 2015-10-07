@@ -289,6 +289,16 @@ html,
     min-width: 100px;
     position: absolute;
 }
+.canvastxt {
+    min-height: 40px;
+    top: 20px;
+    left: 20px;
+    min-width: 100px;
+    position: absolute;
+    contenteditable="true"
+    padding: 5px;
+    font-family: "Raleway Medium", Raleway, Arial, sans-serif;
+}
 .editimgmenu {
     width: 99%;
     height: auto;
