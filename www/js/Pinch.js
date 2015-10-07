@@ -2626,6 +2626,7 @@ function check() {
                 //                el.className = '';
 //                alert(ev.scale);
 //                transform.scale = initScale * ev.scale;
+                alert($('".resize"').outerHeight());
                 $('".resize"').outerWidth($('".resize"').outerWidth() * ev.scale);
                 $('".resize"').outerHeight($('".resize"').outerHeight() * ev.scale);
                 alert($('".resize"').outerHeight());
