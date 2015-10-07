@@ -2619,7 +2619,6 @@ function check() {
                 var el = document.querySelector(".resize");
                 var width = el.clientWidth;
                 var height = el.clientHeight;
-                alert(width);
                 el.style.width = (width * ev.scale) + 'px';
                 el.style.height = (height * ev.scale) + 'px';
                 logEvent(ev);
