@@ -2586,7 +2586,6 @@ function check() {
             function updateElementTransform() {
                 var value = [
                                 'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
-                                'scale(' + transform.scale + ', ' + transform.scale + ')',
                                 'rotate3d(' + transform.rx + ',' + transform.ry + ',' + transform.rz + ',' + transform.angle + 'deg)'
                             ];
 
@@ -2616,27 +2615,14 @@ function check() {
                 requestElementUpdate();
             }
 
-            var initScale = 1;
-
             function onPinch(ev) {
-                if (ev.type == 'pinchstart') {
-                    initScale = transform.scale || 1;
-                }
-
-                //                el.className = '';
-                //                alert(ev.scale);
-                //                transform.scale = initScale * ev.scale;
-//                alert();
                 var el = document.querySelector(".resize");
                 var width = el.clientWidth;
                 var height = el.clientHeight;
                 alert(width);
                 el.style.width = (width * ev.scale) + 'px';
                 el.style.height = (height * ev.scale) + 'px';
-                //                el.offsetWidth = el.offsetWidth * ev.scale;
-                //                el.offsetWidth = el.offsetWidth * ev.scale;
                 logEvent(ev);
-                //                requestElementUpdate();
             }
 
             var initAngle = 0;
