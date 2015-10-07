@@ -2626,13 +2626,13 @@ function check() {
                 //                el.className = '';
                 //                alert(ev.scale);
                 //                transform.scale = initScale * ev.scale;
-                alert();
-                var width = $(".resize").outerWidht();
-                var height = $(".resize").outerHeight();
+//                alert();
+                var el = document.querySelector(".resize");
+                var width = el.clientWidth;
+                var height = el.clientHeight;
                 alert(width);
-                $('".resize"').outerWidth(width * ev.scale);
-                $('".resize"').outerHeight(height * ev.scale);
-
+                el.style.width = (width * ev.scale) + 'px';
+                el.style.height = (height * ev.scale) + 'px';
                 //                el.offsetWidth = el.offsetWidth * ev.scale;
                 //                el.offsetWidth = el.offsetWidth * ev.scale;
                 logEvent(ev);
@@ -2678,7 +2678,7 @@ function check() {
                     //                        resetElement();
                 }, 200);
 
-                alert(el.offsetWidth);
+
 
                 logEvent(ev);
                 requestElementUpdate();
