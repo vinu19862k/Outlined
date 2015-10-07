@@ -2586,6 +2586,7 @@ function check() {
             function updateElementTransform() {
                 var value = [
                                 'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
+                                'scale(' + transform.scale + ', ' + transform.scale + ')',
                                 'rotate3d(' + transform.rx + ',' + transform.ry + ',' + transform.rz + ',' + transform.angle + 'deg)'
                             ];
 
@@ -2593,10 +2594,10 @@ function check() {
                 el.style.webkitTransform = value;
                 el.style.mozTransform = value;
                 el.style.transform = value;
-                var width = el.clientWidth;
-                var height = el.clientHeight;
-                el.style.width = (width * transform.scale) + 'px';
-                el.style.height = (height * transform.scale) + 'px';
+                //                var width = el.clientWidth;
+                //                var height = el.clientHeight;
+                //                el.style.width = (width * transform.scale) + 'px';
+                //                el.style.height = (height * transform.scale) + 'px';
                 ticking = false;
                 $(el).data("value", value);
 
