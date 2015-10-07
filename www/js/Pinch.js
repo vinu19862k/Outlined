@@ -2624,16 +2624,18 @@ function check() {
                 }
 
                 //                el.className = '';
-//                alert(ev.scale);
-//                transform.scale = initScale * ev.scale;
-                alert($('".resize"').outerHeight());
-                $('".resize"').outerWidth($('".resize"').outerWidth() * ev.scale);
-                $('".resize"').outerHeight($('".resize"').outerHeight() * ev.scale);
-                alert($('".resize"').outerHeight());
-//                el.offsetWidth = el.offsetWidth * ev.scale;
-//                el.offsetWidth = el.offsetWidth * ev.scale;
+                //                alert(ev.scale);
+                //                transform.scale = initScale * ev.scale;
+                var width = $(".resize").outerWidht();
+                var height = $(".resize").outerHeight();
+                alert(width);
+                $('".resize"').outerWidth(width * ev.scale);
+                $('".resize"').outerHeight(height * ev.scale);
+
+                //                el.offsetWidth = el.offsetWidth * ev.scale;
+                //                el.offsetWidth = el.offsetWidth * ev.scale;
                 logEvent(ev);
-//                requestElementUpdate();
+                //                requestElementUpdate();
             }
 
             var initAngle = 0;
