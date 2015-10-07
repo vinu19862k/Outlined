@@ -283,10 +283,10 @@ html,
 .canvasimg {
     background-repeat: no-repeat;
     background-size: auto 100%;
-/*    min-height: 50px;*/
+    /*    min-height: 50px;*/
     top: 20px;
     left: 20px;
-/*    min-width: 100px;*/
+    /*    min-width: 100px;*/
     position: absolute;
 }
 .canvastxt {
@@ -295,8 +295,7 @@ html,
     left: 20px;
     min-width: 100px;
     position: absolute;
-    contenteditable="true"
-    padding: 5px;
+    contenteditable="true" padding: 5px;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
 }
 .editimgmenu {

@@ -93,6 +93,8 @@ function insertimg() {
 }
 
 function addimg(e) {
+    var image = new Image();
+    image.src = e;
     var i = $('.canvasimg').length + 1;
     var div = '<div class="canvasimg img';
     var div = div.concat(i, '"></div>');
@@ -105,7 +107,31 @@ function addimg(e) {
         first: "img",
         last: div
     });
-    $(div).data("value", "")
+    $(div).data("value", "");
+    image = rescaleImage(image);
+    $(div).css('height', image.height);
+    $(div).css('width', image.width);
+}
+
+function rescaleImage(image_name) {
+    var max_height = 200;
+    var max_width = 200;
+    var height = image_name.height;
+    var width = image_name.width;
+    var ratio = height / width;
+    if (height > max_height) {
+        ratio = max_height / height;
+        height = height * ratio;
+        width = width * ratio;
+    }
+    if (width > max_width) {
+        ratio = max_width / width;
+        height = height * ratio;
+        width = width * ratio;
+    }
+    image_name.width = width;
+    image_name.height = height;
+    return image_name;
 }
 
 //*************************** Text Menu fucntions *****************\\
