@@ -2595,6 +2595,8 @@ function check() {
 
             }
 
+            function logEvent(ev) {}
+
             function requestElementUpdate() {
                 if (!ticking) {
                     reqAnimationFrame(updateElementTransform);
@@ -2603,12 +2605,10 @@ function check() {
             }
 
             function onPan(ev) {
-                //                el.className = '';
                 transform.translate = {
                     x: START_X + ev.deltaX,
                     y: START_Y + ev.deltaY
                 };
-                logEvent(ev);
                 requestElementUpdate();
             }
 
@@ -2641,9 +2641,7 @@ function check() {
                 transform.rx = (ev.direction & Hammer.DIRECTION_VERTICAL) ? 1 : 0;
                 transform.angle = (ev.direction & (Hammer.DIRECTION_RIGHT | Hammer.DIRECTION_UP)) ? angle : -angle;
                 clearTimeout(timer);
-                timer = setTimeout(function () {
-                    //                        resetElement();
-                }, 300);
+                timer = setTimeout(function () {}, 300);
                 requestElementUpdate();
             }
 
@@ -2651,9 +2649,7 @@ function check() {
                 transform.rx = 1;
                 transform.angle = 25;
                 clearTimeout(timer);
-                timer = setTimeout(function () {
-                    //                        resetElement();
-                }, 200);
+                timer = setTimeout(function () {}, 200);
                 requestElementUpdate();
             }
 
@@ -2664,15 +2660,9 @@ function check() {
                 timer = setTimeout(function () {}, 500);
                 requestElementUpdate();
             }
-
-            //                resetElement();
-
             document.querySelector(".device-button").addEventListener("click", function () {
                 document.querySelector(".device").classList.toggle('hammertime');
             }, false);
-
-
-            /***/
                 },
 
                 ])

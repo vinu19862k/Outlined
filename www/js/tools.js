@@ -55,6 +55,83 @@ function clrchange(e) {
     hideall();
 }
 
+$(function () {
+    var bCanPreview = true; // can preview
+
+    // create canvas and context objects
+    var canvas = document.getElementById('picker');
+    var ctx = canvas.getContext('2d');
+
+    // drawing active image
+    var image = new Image();
+    image.onload = function () {
+        ctx.drawImage(image, 0, 0, image.width, image.height); // draw the image on the canvas
+    }
+
+    // select desired colorwheel
+    var imageSrc = '/images/colorwheel1.png';
+    switch ($(canvas).attr('var')) {
+        case '2':
+            imageSrc = '/images/colorwheel2.png';
+            break;
+        case '3':
+            imageSrc = 'img/colorwheel3.png';
+            break;
+        case '4':
+            imageSrc = '/../images/colorwheel4.png';
+            break;
+        case '5':
+            imageSrc = '/../images/colorwheel5.png';
+            break;
+    }
+    image.src = imageSrc;
+
+        $('#picker').mousemove(function (e) { // mouse move handler
+            if (bCanPreview) {
+                // get coordinates of current position
+                var canvasOffset = $(canvas).offset();
+                var canvasX = Math.floor(e.pageX - canvasOffset.left);
+                var canvasY = Math.floor(e.pageY - canvasOffset.top);
+
+                // get current pixel
+                var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+                var pixel = imageData.data;
+
+                // update preview color
+                var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+                $('.preview').css('backgroundColor', pixelColor);
+                $('.canvas').css('backgroundColor', pixelColor);
+
+                // update controls
+                $('#rVal').val(pixel[0]);
+                $('#gVal').val(pixel[1]);
+                $('#bVal').val(pixel[2]);
+                $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
+
+                var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
+                $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
+            }
+        });
+
+
+
+    $('#picker').click(function (e) { // click event handler
+        bCanPreview = !bCanPreview;
+        $('.colorpicker').fadeToggle("slow", "linear");
+        hideall();
+    });
+    $('.preview').click(function (e) { // preview click
+        $('.colorpicker').fadeToggle("slow", "linear");
+        bCanPreview = true;
+
+        $('.preview').touchstart(function (e) { // preview click
+            $('.colorpicker').fadeToggle("slow", "linear");
+            bCanPreview = true;
+
+        });
+    });
+});
+
 function imgfill(id, img) {
     $(id).css('background-image', img);
 }
@@ -136,7 +213,6 @@ function rescaleImage(image_name) {
 
 //*************************** Text Menu fucntions *****************\\
 function addtext(type) {
-
     var i = $('.canvastxt').length + 1;
     var div = '<div class="canvastxt txt';
     var div = div.concat(i, '">Enter your text here</div>');
@@ -170,6 +246,34 @@ function textAreaAdjust(o) {
     o.style.height = (2 + o.scrollHeight) + "px";
 }
 
+function textedit(id) {
+    $(id).hide();
+    $('#txtarea').css('font-size', $(id).css('font-size'));
+    $('#txtarea').css('top', $(id).css('top'));
+    $('#txtarea').css('left', $(id).css('left'));
+    $('#txtarea').css('text-align', $(id).css('text-align'));
+    $('#txtarea').css('width', $(id).css('width'));
+    $('.hiddentxtarea').show();
+    $('#txtarea').text($(id).text());
+    $('.hiddentxtarea').removeData("id");
+    $('.hiddentxtarea').data("id", id);
+}
+
+function textupdate() {
+    var id = $('.hiddentxtarea').data("id");
+    $('.hiddentxtarea').hide();
+    $(id).show();
+    $(id).text($('#txtarea').val());
+    $(id).css('height', $('#txtarea').css('height'));
+    $(id).css('width', $('#txtarea').css('width'));
+}
+
+function textdiscard() {
+    var id = $('.hiddentxtarea').data("id");
+    $('.hiddentxtarea').hide();
+    $(id).show();
+}
+
 //*************************** Edit Menu fucntions *****************\\
 
 function select(e) {
@@ -180,11 +284,16 @@ function select(e) {
 
     switch (type) {
         case "img":
-            $('.editimgmenu').show(300);
+            $('.editsubmenu').hide();
+            $('.editmenu').show(300);
+            $('.editimgmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
+
         case "txt":
-            $('.edittxtmenu').show(300);
+            $('.editsubmenu').hide();
+            $('.editmenu').show(300);
+            $('.edittxtmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
     }
@@ -194,7 +303,6 @@ function select(e) {
 
 function sendback(e) {
     var id = $('.editmenu').data("id");
-    alert(id);
     var index = 0;
     index = $(id).css('z-index');
     if (index == "auto") {
@@ -217,7 +325,7 @@ function bringfront(e) {
     $(id).css('z-index', index);
 }
 
-function showalign() {
+function showposition() {
     $('.snap').show();
     var id = $('.editmenu').data("id");
     var data = $(id).data("value");
@@ -310,4 +418,19 @@ function snap(pos) {
 function deleteelement() {
     var id = $('.editmenu').data("id");
     $(id).remove();
+}
+
+function aligntxt(pos) {
+    var id = $('.editmenu').data("id");
+    switch (pos) {
+        case "left":
+            $(id).css('text-align', 'left');
+            break;
+        case "center":
+            $(id).css('text-align', 'center');
+            break;
+        case "right":
+            $(id).css('text-align', 'right');
+            break;
+    }
 }

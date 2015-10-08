@@ -5,15 +5,12 @@
     <title>Outlined</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1, user-scalable=yes" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/spectrum.css" />
-    <link rel="stylesheet" href="css/Test.css" />
-    <!--    <link href="css/main.css" rel="stylesheet" type="text/css" />-->
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 </head>
 
 <body class="body">
-
+    <!--Canvas Section-->
     <div class="tools" style="background-image: url(img/brillant.png); background-repeat: repeat;">
         <div id="snap" class="snap">
             <div class="snaptop" style="border-left: solid 3px #000; margin-left: calc(((100% - 330px)/2) - 10px);" onclick="snap('topleft')"></div>
@@ -27,12 +24,13 @@
             <div class="snapbottom" style="border-right: solid 3px #000;margin-left: calc(((100% - 330px)/2) + 310px);" onclick="snap('bottomright')"></div>
         </div>
         <div id="canvas" class="canvas">
-            <div>
-                <textarea style="border:none" id="abc">Enter your text here</textarea>
+            <div class="hiddentxtarea">
+                <textarea id="txtarea" onkeyup="textAreaAdjust(txtarea)" onended="test()" style="width: 80%;"> your text here</textarea>
+                </br>
+                <div class="txtchange" style="background-image: url(img/Tick.png)" onclick="textupdate()"></div>
+                <div class="txtchange" style="background-image: url(img/Cross.png)" onclick="textdiscard()"></div>
             </div>
-            <button onclick="test()" value="sdf">sdfdsf</button>
         </div>
-
     </div>
 
     <!--Tools Submenu Section-->
@@ -125,15 +123,25 @@
 
         </div>
     </div>
-
+    <!--Edit menu Section-->
     <div id="editmenu" class="editmenu editimgmenu">
-
-        <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
-        <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
-        <div class="vdivider" style=" height: 0px;"></div>
-        <div id="align" class="editcnt" style="background-image: url(img/AlignCenter.png)" onclick="showalign()"></div>
-        <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
-        <div class="vdivider" style=" height: 0px;"></div>
+        <div class="editimgmenu editsubmenu">
+            <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
+            <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
+            <div class="vdivider" style=" height: 0px;"></div>
+            <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
+            <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
+        </div>
+        <div class="edittxtmenu editsubmenu">
+            <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
+            <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
+            <div class="vdivider" style=" height: 0px;"></div>
+            <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
+            <div id="alignl" class="editcnt" style="background-image: url(img/AlignLeft.png)" onclick="aligntxt('left')"></div>
+            <div id="alignc" class="editcnt" style="background-image: url(img/AlignCenter.png)" onclick="aligntxt('center')"></div>
+            <div id="alignr" class="editcnt" style="background-image: url(img/AlignRight.png)" onclick="aligntxt('right')"></div>
+            <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
+        </div>
     </div>
     <!--Footer Section-->
     <div id="footer" class="footer" style="background-image: url(img/brillant.png); background-repeat: repeat;">
@@ -159,16 +167,12 @@
     <script src="js/jquery.js"></script>
     <script src="js/iscroll.js"></script>
     <script src="js/tools.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/Jquery-Touch.js"></script>
     <script src="js/Pinch.js"></script>
     <script>
-        function textAreaAdjust(o) {
-            o.style.height = "1px";
-            o.style.height = (25 + o.scrollHeight) + "px";
-        }
+
 
     </script>
 </body>
