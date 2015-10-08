@@ -2577,10 +2577,6 @@ function check() {
                 }
             });
 
-            function logEvent(ev) {
-                //                    el.innerText = ev.type;
-            }
-
             function resetElement() {}
 
             function updateElementTransform() {
@@ -2620,22 +2616,22 @@ function check() {
                 var el = document.querySelector(".resize");
                 var width = el.clientWidth;
                 var height = el.clientHeight;
-                el.style.width = (width + ev.scale) + 'px';
-                el.style.height = (height + ev.scale) + 'px';
+                if (ev.scale > 1) {
+                    el.style.width = (width + ev.scale) + 'px';
+                    el.style.height = (height + ev.scale) + 'px';
+                } else {
+                    el.style.width = (width - ev.scale) + 'px';
+                    el.style.height = (height - ev.scale) + 'px';
+                }
             }
-
             var initAngle = 0;
 
             function onRotate(ev) {
                 if (ev.type == 'rotatestart') {
                     initAngle = transform.angle || 0;
                 }
-
-                //                el.className = '';
                 transform.rz = 1;
                 transform.angle = initAngle + ev.rotation;
-
-                logEvent(ev);
                 requestElementUpdate();
             }
 
@@ -2644,48 +2640,31 @@ function check() {
                 transform.ry = (ev.direction & Hammer.DIRECTION_HORIZONTAL) ? 1 : 0;
                 transform.rx = (ev.direction & Hammer.DIRECTION_VERTICAL) ? 1 : 0;
                 transform.angle = (ev.direction & (Hammer.DIRECTION_RIGHT | Hammer.DIRECTION_UP)) ? angle : -angle;
-
                 clearTimeout(timer);
                 timer = setTimeout(function () {
                     //                        resetElement();
                 }, 300);
-
-                logEvent(ev);
                 requestElementUpdate();
             }
 
             function onTap(ev) {
                 transform.rx = 1;
                 transform.angle = 25;
-
                 clearTimeout(timer);
                 timer = setTimeout(function () {
                     //                        resetElement();
                 }, 200);
-
-
-
-                logEvent(ev);
                 requestElementUpdate();
             }
 
             function onDoubleTap(ev) {
-                if ($(el).data("type").first == "txt") {
-                    $($(el).data("type").last).focus();
-
-                } else {
-                    transform.rx = 1;
-                    transform.angle = 80;
-                    clearTimeout(timer);
-                    timer = setTimeout(function () {
-                    }, 500);
-                    logEvent(ev);
-                    requestElementUpdate();
-
-                }
-
-
+                transform.rx = 1;
+                transform.angle = 80;
+                clearTimeout(timer);
+                timer = setTimeout(function () {}, 500);
+                requestElementUpdate();
             }
+
             //                resetElement();
 
             document.querySelector(".device-button").addEventListener("click", function () {
