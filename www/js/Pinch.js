@@ -2622,11 +2622,11 @@ function check() {
                         var width = el.clientWidth;
                         var height = el.clientHeight;
                         if (ev.scale > 1) {
-                            el.style.width = (width + ev.scale ) + 'px';
-                            el.style.height = (height + ev.scale) + 'px';
+                            el.style.width = (width + (ev.scale * 5)) + 'px';
+                            el.style.height = (height + (ev.scale * 5)) + 'px';
                         } else {
-                            el.style.width = (width - ev.scale) + 'px';
-                            el.style.height = (height - ev.scale) + 'px';
+                            el.style.width = (width - (ev.scale * 5)) + 'px';
+                            el.style.height = (height - (ev.scale * 5)) + 'px';
                         }
                         break;
                     case "txt":
