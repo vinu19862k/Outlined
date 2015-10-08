@@ -168,7 +168,7 @@ function addtext(type) {
 
 function textAreaAdjust(o) {
     o.style.height = "1px";
-    o.style.height = (25 + o.scrollHeight) + "px";
+    o.style.height = (2px + o.scrollHeight) + "px";
 }
 
 //*************************** Edit Menu fucntions *****************\\
