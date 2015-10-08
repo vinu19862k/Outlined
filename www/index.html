@@ -27,7 +27,9 @@
             <div class="snapbottom" style="border-right: solid 3px #000;margin-left: calc(((100% - 330px)/2) + 310px);" onclick="snap('bottomright')"></div>
         </div>
         <div id="canvas" class="canvas">
-            <div><textarea style="border:none" id="abc">Enter your text here</textarea></div>
+            <div>
+                <textarea style="border:none" id="abc">Enter your text here</textarea>
+            </div>
             <button onclick="test()" value="sdf">sdfdsf</button>
         </div>
 
@@ -163,9 +165,9 @@
     <script src="js/Jquery-Touch.js"></script>
     <script src="js/Pinch.js"></script>
     <script>
-        function test() {
-            alert();
-            $('#abc').focus();
+        function textAreaAdjust(o) {
+            o.style.height = "1px";
+            o.style.height = (25 + o.scrollHeight) + "px";
         }
 
     </script>

@@ -2617,13 +2617,19 @@ function check() {
             }
 
             function onPinch(ev) {
-                var el = document.querySelector(".resize");
-                var width = el.clientWidth;
-                var height = el.clientHeight;
-                el.style.width = (width + ev.scale) + 'px';
-                el.style.height = (height + ev.scale) + 'px';
-            }
 
+                if ($(el).data("type").first == "txt") {
+                    alert();
+                    $($(el).data("type").last).focus();
+
+                } else {
+                    var el = document.querySelector(".resize");
+                    var width = el.clientWidth;
+                    var height = el.clientHeight;
+                    el.style.width = (width + ev.scale) + 'px';
+                    el.style.height = (height + ev.scale) + 'px';
+                }
+            }
             var initAngle = 0;
 
             function onRotate(ev) {
@@ -2671,22 +2677,17 @@ function check() {
 
             function onDoubleTap(ev) {
 
-                if ($(el).data("type").first == "txt") {
-                    alert();
-                    $($(el).data("type").last).focus();
+                transform.rx = 1;
+                transform.angle = 80;
 
-                } else {
-                    transform.rx = 1;
-                    transform.angle = 80;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
 
-                    clearTimeout(timer);
-                    timer = setTimeout(function () {
+                }, 500);
 
-                    }, 500);
+                logEvent(ev);
+                requestElementUpdate();
 
-                    logEvent(ev);
-                    requestElementUpdate();
-                }
             }
 
             //                resetElement();

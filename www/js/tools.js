@@ -138,10 +138,11 @@ function rescaleImage(image_name) {
 function addtext(type) {
 
     var i = $('.canvastxt').length + 1;
-    var div = '<div class="canvastxt txt';
-    var div = div.concat(i, '"><textarea id=".txt', i, '" class="canvastxt">Enter your text here</textarea></div>');
+    var div = '<textarea class="canvastxt txt';
+    var div = div.concat(i, '" id=".txt', i, '" class="canvastxtarea" onkeyup="textAreaAdjust(this)">Enter your text here</textarea>');
     $(".canvas").append(div);
     div = ".txt" + i;
+    $(div).autoResize();
     $(div).attr("onclick", "select(this)");
     $(div).data("type", {
         first: "txt",
@@ -163,6 +164,11 @@ function addtext(type) {
     }
     $(div).css('font-size', e);
     $(div).data("value", "")
+}
+
+function textAreaAdjust(o) {
+    o.style.height = "1px";
+    o.style.height = (25 + o.scrollHeight) + "px";
 }
 
 //*************************** Edit Menu fucntions *****************\\
