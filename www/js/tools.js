@@ -139,7 +139,7 @@ function addtext(type) {
 
     var i = $('.canvastxt').length + 1;
     var div = '<div class="canvastxt txt';
-    var div = div.concat(i, '"><textarea id=".txt', i, '">Enter your text here</textarea></div>');
+    var div = div.concat(i, '"><textarea id=".txt', i, '" class="canvastxt">Enter your text here</textarea></div>');
     $(".canvas").append(div);
     div = ".txt" + i;
     $(div).attr("onclick", "select(this)");

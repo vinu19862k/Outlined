@@ -296,7 +296,7 @@ html,
 /*    min-width: 100px;*/
     max-width: 90%;
     position: absolute;
-    contenteditable="true" padding: 5px;
+/*    contenteditable="true" padding: 5px;*/
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
 }
 .editimgmenu {
