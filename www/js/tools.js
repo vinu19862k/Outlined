@@ -420,19 +420,12 @@ function showposition() {
     var id = $('.editmenu').data("id");
     var data = $(id).data("value");
     var value = data.split(")");
-    alert(data);
     var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
-    if (value.length = 2) {
-        data = 'translate3d(0px, 0px, 0), ' + value[1] + ")";
-    } else {
-        data = 'translate3d(0px, 0px, 0), ' + value[2] + ")";
-    }
-    $(id).css('transform', 'none');
-
-    $(id).css('transform', data);
+    value[1] = value[1] + ")";
+    $(id).css('transform', value[1]);
 }
 
 function snap(pos) {
