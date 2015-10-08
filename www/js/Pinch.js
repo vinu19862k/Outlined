@@ -2672,7 +2672,9 @@ function check() {
             function onDoubleTap(ev) {
 
                 if ($(el).data("type").first == "txt") {
-                $($(el).data("type").last).focus();
+                    alert();
+                    $($(el).data("type").last).focus();
+
                 } else {
                     transform.rx = 1;
                     transform.angle = 80;
