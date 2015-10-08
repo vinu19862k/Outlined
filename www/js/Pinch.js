@@ -2615,6 +2615,7 @@ function check() {
             function onPinch(ev) {
                 var el = document.querySelector(".resize");
                 var id = $('.resize').data("type").last;
+                alert(id);
                 switch (id) {
                     case "img":
                         alert();
