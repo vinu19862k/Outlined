@@ -69,49 +69,35 @@ $(function () {
     }
 
     // select desired colorwheel
-    var imageSrc = '/images/colorwheel1.png';
-    switch ($(canvas).attr('var')) {
-        case '2':
-            imageSrc = '/images/colorwheel2.png';
-            break;
-        case '3':
-            imageSrc = 'img/colorwheel3.png';
-            break;
-        case '4':
-            imageSrc = '/../images/colorwheel4.png';
-            break;
-        case '5':
-            imageSrc = '/../images/colorwheel5.png';
-            break;
-    }
+    imageSrc = 'img/colorwheel3.png';
     image.src = imageSrc;
 
-        $('#picker').mousemove(function (e) { // mouse move handler
-            if (bCanPreview) {
-                // get coordinates of current position
-                var canvasOffset = $(canvas).offset();
-                var canvasX = Math.floor(e.pageX - canvasOffset.left);
-                var canvasY = Math.floor(e.pageY - canvasOffset.top);
+    $('#picker').mousemove(function (e) { // mouse move handler
+        if (bCanPreview) {
+            // get coordinates of current position
+            var canvasOffset = $(canvas).offset();
+            var canvasX = Math.floor(e.pageX - canvasOffset.left);
+            var canvasY = Math.floor(e.pageY - canvasOffset.top);
 
-                // get current pixel
-                var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
-                var pixel = imageData.data;
+            // get current pixel
+            var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+            var pixel = imageData.data;
 
-                // update preview color
-                var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
-                $('.preview').css('backgroundColor', pixelColor);
-                $('.canvas').css('backgroundColor', pixelColor);
+            // update preview color
+            var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+            $('.preview').css('backgroundColor', pixelColor);
+            $('.canvas').css('backgroundColor', pixelColor);
 
-                // update controls
-                $('#rVal').val(pixel[0]);
-                $('#gVal').val(pixel[1]);
-                $('#bVal').val(pixel[2]);
-                $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
+            // update controls
+            $('#rVal').val(pixel[0]);
+            $('#gVal').val(pixel[1]);
+            $('#bVal').val(pixel[2]);
+            $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
 
-                var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
-                $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
-            }
-        });
+            var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
+            $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
+        }
+    });
 
 
 
@@ -124,11 +110,7 @@ $(function () {
         $('.colorpicker').fadeToggle("slow", "linear");
         bCanPreview = true;
 
-        $('.preview').touchstart(function (e) { // preview click
-            $('.colorpicker').fadeToggle("slow", "linear");
-            bCanPreview = true;
 
-        });
     });
 });
 
@@ -273,6 +255,113 @@ function textdiscard() {
     $('.hiddentxtarea').hide();
     $(id).show();
 }
+
+$(function () {
+    var bCanPreview = true; // can preview
+
+    // create canvas and context objects
+    var canvas = document.getElementById('txtpicker');
+    var ctx = canvas.getContext('2d');
+
+    // drawing active image
+    var image = new Image();
+    image.onload = function () {
+            ctx.drawImage(image, 0, 0, image.width, image.height); // draw the image on the canvas
+        }
+        // select desired colorwheel
+    imageSrc = 'img/colorwheel3.png';
+    image.src = imageSrc;
+
+    var canvas1 = document.getElementById('txtbgpicker');
+    var ctx1 = canvas1.getContext('2d');
+
+    // drawing active image
+    var image1 = new Image();
+    image1.onload = function () {
+        ctx1.drawImage(image1, 0, 0, image1.width, image1.height); // draw the image on the canvas
+    }
+    imageSrc = 'img/colorwheel3.png';
+    image1.src = imageSrc;
+
+    $('#txtpicker').mousemove(function (e) { // mouse move handler
+        if (bCanPreview) {
+            // get coordinates of current position
+            var canvasOffset = $(canvas).offset();
+            var canvasX = Math.floor(e.pageX - canvasOffset.left);
+            var canvasY = Math.floor(e.pageY - canvasOffset.top);
+
+            // get current pixel
+            var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+            var pixel = imageData.data;
+
+            // update preview color
+            var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+            $('.txtpreview').css('backgroundColor', pixelColor);
+            var id = $('.editmenu').data("id");
+            $(id).css('color', pixelColor);
+
+            // update controls
+            $('#rVal').val(pixel[0]);
+            $('#gVal').val(pixel[1]);
+            $('#bVal').val(pixel[2]);
+            $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
+
+            var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
+            $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
+        }
+    });
+
+    $('#txtbgpicker').mousemove(function (e) { // mouse move handler
+        if (bCanPreview) {
+            // get coordinates of current position
+            var canvasOffset = $(canvas1).offset();
+            var canvasX = Math.floor(e.pageX - canvasOffset.left);
+            var canvasY = Math.floor(e.pageY - canvasOffset.top);
+
+            // get current pixel
+            var imageData = ctx1.getImageData(canvasX, canvasY, 1, 1);
+            var pixel = imageData.data;
+
+            // update preview color
+            var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+            $('.txtbgpreview').css('backgroundColor', pixelColor);
+            var id = $('.editmenu').data("id");
+            $(id).css('backgroundColor', pixelColor);
+
+            // update controls
+            $('#rVal').val(pixel[0]);
+            $('#gVal').val(pixel[1]);
+            $('#bVal').val(pixel[2]);
+            $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
+
+            var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
+            $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
+        }
+    });
+
+    $('#txtpicker').click(function (e) { // click event handler
+        bCanPreview = !bCanPreview;
+        $('.txtcolorpicker').fadeToggle("slow", "linear");
+        hideall();
+    });
+    $('#txtbgpicker').click(function (e) { // click event handler
+        bCanPreview = !bCanPreview;
+        $('.txtbgcolorpicker').fadeToggle("slow", "linear");
+        hideall();
+    });
+    $('.txtpreview').click(function (e) { // preview click
+        $('.txtcolorpicker').fadeToggle("slow", "linear");
+        bCanPreview = true;
+
+
+    });
+    $('.txtbgpreview').click(function (e) { // preview click
+        $('.txtbgcolorpicker').fadeToggle("slow", "linear");
+        bCanPreview = true;
+
+
+    });
+});
 
 //*************************** Edit Menu fucntions *****************\\
 

@@ -204,7 +204,9 @@ html,
     border-radius: 5px 5px 5px 5px;
     box-shadow: 2px 2px 2px #444444;
 }
-.colorpicker {
+.colorpicker,
+.txtcolorpicker,
+.txtbgcolorpicker {
     background-color: #222222;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 2px 2px 2px #444444;
@@ -213,13 +215,17 @@ html,
     position: absolute;
     width: 120px;
 }
-#picker {
+#picker,
+#txtpicker,
+#txtbgpicker {
     cursor: crosshair;
     float: left;
     margin: 10px;
     border: 0;
 }
-.preview {
+.preview,
+.txtpreview,
+.txtbgpreview {
     background: url("../img/select.png") repeat scroll center center transparent;
     border-radius: 3px;
     box-shadow: 2px 2px 2px #444444;

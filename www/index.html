@@ -140,6 +140,21 @@
             <div id="alignl" class="editcnt" style="background-image: url(img/AlignLeft.png)" onclick="aligntxt('left')"></div>
             <div id="alignc" class="editcnt" style="background-image: url(img/AlignCenter.png)" onclick="aligntxt('center')"></div>
             <div id="alignr" class="editcnt" style="background-image: url(img/AlignRight.png)" onclick="aligntxt('right')"></div>
+            <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
+                <!-- colorpicker element -->
+                <div class="txtpreview" style="background-image: url('img/TextColor.png');background-size: contain"></div>
+                <div class="txtcolorpicker" style="display:none; top: -120px; right: 10px;">
+                    <canvas id="txtpicker" var="3" width="100" height="100"></canvas>
+                </div>
+            </div>
+            <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
+                <!-- colorpicker element -->
+                <div class="txtbgpreview"></div>
+                <div class="txtbgcolorpicker" style="display:none; top: -120px; right: 10px;">
+                    <canvas id="txtbgpicker" var="3" width="100" height="100" style=""></canvas>
+                </div>
+            </div>
+
             <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
         </div>
     </div>
