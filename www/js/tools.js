@@ -229,11 +229,11 @@ function textAreaAdjust(o) {
 }
 
 function textedit() {
-    var id = $('.resize').data("type").first;
+    var id = $('.resize').data("type").last;
     $(id).hide();
     $('#txtarea').css('font-size', $(id).css('font-size'));
-    $('#txtarea').css('top', $(id).css('top'));
-    $('#txtarea').css('left', $(id).css('left'));
+//    $('#txtarea').css('top', $(id).css('top'));
+//    $('#txtarea').css('left', $(id).css('left'));
     $('#txtarea').css('text-align', $(id).css('text-align'));
     $('#txtarea').css('width', $(id).css('width'));
     $('.hiddentxtarea').show();
