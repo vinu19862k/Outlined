@@ -290,19 +290,13 @@ html,
     position: absolute;
 }
 .canvastxt {
-
     top: 20px;
     left: 10px;
-
-    position: relative;
-    border: none;
-}
-.canvastxtarea {
-    min-height: 40px;
     max-width: 90%;
     position: absolute;
     border: none;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
+    contenteditable: "true";
 }
 .editimgmenu {
     width: 99%;
