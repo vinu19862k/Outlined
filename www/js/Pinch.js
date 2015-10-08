@@ -2622,7 +2622,7 @@ function check() {
                 var height = el.clientHeight;
                 el.style.width = (width + ev.scale) + 'px';
                 el.style.height = (height + ev.scale) + 'px';
-             }
+            }
 
             var initAngle = 0;
 
@@ -2670,17 +2670,21 @@ function check() {
             }
 
             function onDoubleTap(ev) {
-                alert($(el).data("type").last);
-                transform.rx = 1;
-                transform.angle = 80;
 
-                clearTimeout(timer);
-                timer = setTimeout(function () {
+                if ($(el).data("type").first == "txt") {
+                $($(el).data("type").last).focus();
+                } else {
+                    transform.rx = 1;
+                    transform.angle = 80;
 
-                }, 500);
+                    clearTimeout(timer);
+                    timer = setTimeout(function () {
 
-                logEvent(ev);
-                requestElementUpdate();
+                    }, 500);
+
+                    logEvent(ev);
+                    requestElementUpdate();
+                }
             }
 
             //                resetElement();
