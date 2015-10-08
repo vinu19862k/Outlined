@@ -2614,15 +2614,23 @@ function check() {
 
             function onPinch(ev) {
                 var el = document.querySelector(".resize");
-                var width = el.clientWidth;
-                var height = el.clientHeight;
-                if (ev.scale > 1) {
-                    el.style.width = (width + ev.scale) + 'px';
-                    el.style.height = (height + ev.scale) + 'px';
-                } else {
-                    el.style.width = (width - ev.scale) + 'px';
-                    el.style.height = (height - ev.scale) + 'px';
+                var id = $(el).data("type").last;
+                switch (id) {
+                    case "img":
+                        var width = el.clientWidth;
+                        var height = el.clientHeight;
+                        if (ev.scale > 1) {
+                            el.style.width = (width + (ev.scale * 5)) + 'px';
+                            el.style.height = (height + (ev.scale * 5)) + 'px';
+                        } else {
+                            el.style.width = (width - (ev.scale * 5)) + 'px';
+                            el.style.height = (height - (ev.scale * 5)) + 'px';
+                        }
+                        break;
+                    case "txt":
+                        break;
                 }
+
             }
             var initAngle = 0;
 

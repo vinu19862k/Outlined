@@ -378,13 +378,14 @@ function select(e) {
             $('.editimgmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
-
+            break;
         case "txt":
             $('.editsubmenu').hide();
             $('.editmenu').show(300);
             $('.edittxtmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
+            break;
     }
     $(e).addClass("resize");
     check();
