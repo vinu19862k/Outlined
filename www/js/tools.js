@@ -420,6 +420,7 @@ function showposition() {
     var id = $('.editmenu').data("id");
     var data = $(id).data("value");
     var value = data.split(")");
+    alert(data);
     var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
