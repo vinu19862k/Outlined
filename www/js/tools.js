@@ -138,8 +138,8 @@ function rescaleImage(image_name) {
 function addtext(type) {
 
     var i = $('.canvastxt').length + 1;
-    var div = '<textarea class="canvastxt txt';
-    var div = div.concat(i, '">Enter your text here</textarea>');
+    var div = '<div class="canvastxt txt';
+    var div = div.concat(i, '"><textarea>Enter your text here</textarea></div>');
     $(".canvas").append(div);
     div = ".txt" + i;
     $(div).attr("onclick", "select(this)");

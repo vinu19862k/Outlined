@@ -2594,10 +2594,6 @@ function check() {
                 el.style.webkitTransform = value;
                 el.style.mozTransform = value;
                 el.style.transform = value;
-                //                var width = el.clientWidth;
-                //                var height = el.clientHeight;
-                //                el.style.width = (width * transform.scale) + 'px';
-                //                el.style.height = (height * transform.scale) + 'px';
                 ticking = false;
                 $(el).data("value", value);
 
@@ -2626,16 +2622,7 @@ function check() {
                 var height = el.clientHeight;
                 el.style.width = (width + ev.scale) + 'px';
                 el.style.height = (height + ev.scale) + 'px';
-                //                if (ev.type == 'pinchstart') {
-                //                    initScale = transform.scale || 1;
-                //                }
-                //
-                //                //                el.className = '';
-                //                transform.scale = initScale * ev.scale;
-                //                logEvent(ev);
-                //                requestElementUpdate();
-                //logEvent(ev);
-            }
+             }
 
             var initAngle = 0;
 
@@ -2683,6 +2670,7 @@ function check() {
             }
 
             function onDoubleTap(ev) {
+                alert($(el).data("type").last);
                 transform.rx = 1;
                 transform.angle = 80;
 
