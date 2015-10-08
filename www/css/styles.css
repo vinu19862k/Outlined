@@ -320,20 +320,7 @@ html,
     display: block;
     margin: 2px;
 }
-.editimgmenu {
-    width: 99%;
-    height: auto;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: solid .5px;
-    bottom: 65px;
-    position: fixed;
-    z-index: 1000;
-    background: #ECEDF1;
-    padding: 2px;
-    display: none;
-}
+.editimgmenu,
 .edittxtmenu {
     width: 99%;
     height: auto;
@@ -345,12 +332,12 @@ html,
     position: fixed;
     z-index: 1000;
     background: #ECEDF1;
-    padding: 2px;
+    padding: 2px 0px;
     display: none;
 }
 .editcnt {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

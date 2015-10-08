@@ -228,7 +228,8 @@ function textAreaAdjust(o) {
     o.style.height = (2 + o.scrollHeight) + "px";
 }
 
-function textedit(id) {
+function textedit() {
+    var id = $('.resize').data("type").first;
     $(id).hide();
     $('#txtarea').css('font-size', $(id).css('font-size'));
     $('#txtarea').css('top', $(id).css('top'));
