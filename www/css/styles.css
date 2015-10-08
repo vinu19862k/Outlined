@@ -292,11 +292,10 @@ html,
 .canvastxt {
     top: 20px;
     left: 10px;
-    max-width: 90%;
+    max-width: 95%;
     position: absolute;
     border: none;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
-    contenteditable: "true";
 }
 .editimgmenu {
     width: 99%;
