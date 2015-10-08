@@ -2615,10 +2615,8 @@ function check() {
             function onPinch(ev) {
                 var el = document.querySelector(".resize");
                 var id = $('.resize').data("type").first;
-                alert(id);
                 switch (id) {
                     case "img":
-                        alert();
                         var width = el.clientWidth;
                         var height = el.clientHeight;
                         if (ev.scale > 1) {
