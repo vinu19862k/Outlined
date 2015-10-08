@@ -292,8 +292,9 @@ html,
 .canvastxt {
     min-height: 40px;
     top: 20px;
-    left: 20px;
-    min-width: 100px;
+    left: 10px;
+/*    min-width: 100px;*/
+    max-width: 90%;
     position: absolute;
     contenteditable="true" padding: 5px;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
