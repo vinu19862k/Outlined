@@ -2670,20 +2670,22 @@ function check() {
             }
 
             function onDoubleTap(ev) {
+                if ($(el).data("type").first == "txt") {
+                    $($(el).data("type").last).focus();
 
-//                transform.rx = 1;
-//                transform.angle = 80;
+                } else {
+                    transform.rx = 1;
+                    transform.angle = 80;
+                    clearTimeout(timer);
+                    timer = setTimeout(function () {
+                    }, 500);
+                    logEvent(ev);
+                    requestElementUpdate();
 
-                clearTimeout(timer);
-                timer = setTimeout(function () {
+                }
 
-                }, 500);
-
-                logEvent(ev);
-                requestElementUpdate();
 
             }
-
             //                resetElement();
 
             document.querySelector(".device-button").addEventListener("click", function () {
@@ -2692,7 +2694,7 @@ function check() {
 
 
             /***/
-                    },
+                },
 
                 ])
 }
