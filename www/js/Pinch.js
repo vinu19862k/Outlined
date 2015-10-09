@@ -2525,7 +2525,7 @@ function check() {
             })();
             var screen = document.querySelector(".canvas");
             var el = document.querySelector(".resize");
-
+            $(el).data("value", value);
             var START_X = (screen.offsetWidth - el.offsetWidth) / 4;
             var START_Y = (screen.offsetHeight - el.offsetHeight) / 4;
 
@@ -2537,7 +2537,6 @@ function check() {
                     x: START_X,
                     y: START_Y
                 },
-                scale: 1,
                 angle: 0,
                 rx: 0,
                 ry: 0,
