@@ -12,23 +12,24 @@
 <body class="body">
     <!--Canvas Section-->
     <div class="tools" style="background-image: url(img/brillant.png); background-repeat: repeat;">
-        <div id="snap" class="snap">
-            <div class="snaptop" style="border-left: solid 3px #000; margin-left: calc(((100% - 330px)/2) - 10px);" onclick="snap('topleft')"></div>
-            <div class="snaptop" style="margin-left:calc(((100% - 330px)/2) + 150px)" onclick="snap('topcenter')"></div>
-            <div class="snaptop" style="border-right: solid 3px #000;margin-left: calc(((100% - 330px)/2) + 310px);" onclick="snap('topright')"></div>
-            <div class="snapcenter" style="border-left: solid 3px #000; margin-left: calc(((100% - 330px)/2) - 10px);" onclick="snap('centerleft')"></div>
-
-            <div class="snapcenter" style="border-right: solid 3px #000;margin-left: calc(((100% - 330px)/2) + 310px);" onclick="snap('centerright')"></div>
-            <div class="snapbottom" style="border-left: solid 3px #000; margin-left: calc(((100% - 330px)/2) - 10px);" onclick="snap('bottomleft')"></div>
-            <div class="snapbottom" style="margin-left:calc(((100% - 330px)/2) + 150px)" onclick="snap('bottomcenter')"></div>
-            <div class="snapbottom" style="border-right: solid 3px #000;margin-left: calc(((100% - 330px)/2) + 310px);" onclick="snap('bottomright')"></div>
-        </div>
-        <div id="canvas" class="canvas">
-            <div class="hiddentxtarea">
-                <textarea id="txtarea" onkeyup="textAreaAdjust(txtarea)" onended="test()" style="width: 80%;"> your text here</textarea>
-                </br>
-                <div class="txtchange" style="background-image: url(img/Tick.png)" onclick="textupdate()"></div>
-                <div class="txtchange" style="background-image: url(img/Cross.png)" onclick="textdiscard()"></div>
+        <div class="canvascnt">
+            <div class="snap">
+                <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snaptop"></div>
+                <div class="snaptop" style="margin-left: 150px;"></div>
+                <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snaptop"></div>
+                <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snapcenter"></div>
+                <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snapcenter"></div>
+                <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snapbottom"></div>
+                <div class="snapbottom" style="margin-left: 150px;"></div>
+                <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snapbottom"></div>
+            </div>
+            <div id="canvas" class="canvas">
+                <div class="hiddentxtarea">
+                    <textarea id="txtarea" onkeyup="textAreaAdjust(txtarea)" onended="test()" style="width: 80%;"> your text here</textarea>
+                    </br>
+                    <div class="txtchange" style="background-image: url(img/Tick.png)" onclick="textupdate()"></div>
+                    <div class="txtchange" style="background-image: url(img/Cross.png)" onclick="textdiscard()"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -120,7 +121,26 @@
 
         </div>
         <div class="toolsSHP toolscnt">
-
+            <div style="Text-align:center;">
+                <div>
+                    Shapes
+                </div>
+                <div class="SPHcnt">
+                    <div class="ln" onclick="addshape('square')"></div>Line
+                </div>
+                <div class="SPHcnt">
+                    <div class="sq" onclick="addshape('square')"></div>Square
+                </div>
+                <div class="SPHcnt">
+                    <div class="rect" onclick="addshape('rectangle')"></div>Rectangle
+                </div>
+                <div class="SPHcnt">
+                    <div class="cir" onclick="addshape('circle')"></div>Circle
+                </div>
+                 <div class="SPHcnt">
+                    <div class="ovl" onclick="addshape('oval')"></div>Oval
+                </div>
+            </div>
         </div>
     </div>
     <!--Edit menu Section-->

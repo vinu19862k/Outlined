@@ -31,9 +31,10 @@ html,
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
     min-height: 640px;
     z-index: -1001;
+    margin: 0 auto;
     /*
     background-image: url(img/brillant.png);
     background-repeat: repeat;
@@ -67,13 +68,16 @@ html,
     color: #999;
     background-color: #ECEDF1;
 }
+.canvascnt {
+    margin: 40px auto;
+    width: 330px;
+    height: 480px;
+}
 .canvas {
-    margin: 40px 5% 0px 5%;
     width: 330px;
     height: 480px;
     border: solid 1px;
     background: #fff;
-    position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -82,48 +86,39 @@ html,
     z-index: -1000;
 }
 .snap {
-    display: none;
+    /*    display: none;*/
 }
 .snaptop {
     border-top: solid 3px #000;
-    margin-top: 30px;
-    position: fixed;
     width: 30px;
-    height: 30px;
-    float: left;
+    height: 27px;
+    position: absolute;
+    margin-top: -10px;
 }
 .snapcenter {
-    position: fixed;
     width: 30px;
-    height: 30px;
-    float: left;
-    margin-top: calc(40px - 15px + 240px);
+    height: 27px;
+    position: absolute;
+    margin-top: 240px;
 }
 .snapbottom {
-    position: fixed;
     width: 30px;
+    height: 27px;
+    margin-top: 465px;
     border-bottom: solid 3px #000;
-    height: 30px;
-    float: left;
-    margin-top: calc(40px - 20px + 480px);
+    position: absolute;
 }
 .footer {
     width: 100%;
     height: 65px;
-    /*    border: solid .5px;*/
     background: #fff;
     position: fixed;
-    /*
-    background-image: url(img/brillant.png);
-    background-repeat: repeat;
-*/
     bottom: 0;
 }
 .menucnt {
-    width: 24.4%;
+    width: 24%;
     height: 60px;
-    margin: 2px 1px;
-    /*    border: solid .5px;*/
+    margin: 2px .5%;
     background: #ECEDF1;
     float: left;
     -webkit-border-radius: 5px;
@@ -178,10 +173,12 @@ html,
 .toolsSHP {
     width: 100%;
     height: 240px;
-    background: #564832;
+    /*    background: #564832;*/
     position: relative;
     display: none;
     padding-top: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .colorcnt {
     width: 92px;
@@ -290,16 +287,16 @@ html,
     background-repeat: no-repeat;
     background-size: auto 100%;
     /*    min-height: 50px;*/
+/*
     top: 20px;
     left: 20px;
+*/
     /*    min-width: 100px;*/
-    position: absolute;
+    position: fixed;
 }
 .canvastxt {
-    top: 20px;
-    left: 10px;
     max-width: 95%;
-    position: absolute;
+    position: fixed;
     border: none;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
     word-wrap: break-word;
@@ -334,12 +331,62 @@ html,
     display: none;
 }
 .editcnt {
-    width: 30px;
+    width: 8%;
     height: 30px;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     float: left;
     margin-left: 3px;
     /*    background: #ECEDF1;*/
+}
+.SPHcnt {
+    width: 30%;
+    float: left;
+    margin-top: 10px;
+    margin-left: 1%;
+    padding: .5%;
+    text-align: center;
+    font-size: 12px;
+}
+.canvasshapecnt {
+    width: 200px;
+    top: 20;
+    left: 20;
+    position: fixed;
+}
+.ln {
+    width: 80%;
+    border: solid 1px;
+    margin: 45% auto;
+}
+.sq {
+    width: 80%;
+    padding-bottom: 80%;
+    border: solid 1px;
+    margin: 10% auto;
+}
+.rect {
+    width: 80%;
+    padding-bottom: 60%;
+    border: solid 1px;
+    margin: 20% auto;
+}
+.cir {
+    width: 80%;
+    padding-bottom: 80%;
+    border: solid 1px;
+    margin: 10% auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.oval {
+    width: 80%;
+    padding-bottom: 50%;
+    border: solid 1px;
+    margin: 25% auto;
+    -moz-border-radius: 100% / 100%;
+    -webkit-border-radius: 100% / 100%;
+    border-radius: 100% / 100%;
 }

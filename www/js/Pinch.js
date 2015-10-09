@@ -2525,10 +2525,12 @@ function check() {
             })();
             var screen = document.querySelector(".canvas");
             var el = document.querySelector(".resize");
-            $(el).data("value", value);
-            var START_X = (screen.offsetWidth - el.offsetWidth) / 4;
-            var START_Y = (screen.offsetHeight - el.offsetHeight) / 4;
+            var screenrect = screen.getBoundingClientRect();
 
+            elrect = el.getBoundingClientRect();
+            console.log(elrect);
+            var START_X = ((elrect.x + elrect.left) / 2) - screenrect.x;
+            var START_Y = ((elrect.y + elrect.left) / 2) - screenrect.y;
             var ticking = false;
             var transform;
             var timer;
@@ -2537,6 +2539,7 @@ function check() {
                     x: START_X,
                     y: START_Y
                 },
+                scale: 1,
                 angle: 0,
                 rx: 0,
                 ry: 0,
@@ -2589,6 +2592,8 @@ function check() {
                 el.style.webkitTransform = value;
                 el.style.mozTransform = value;
                 el.style.transform = value;
+                el.style.top = 0;
+                el.style.left = 0;
                 ticking = false;
                 $(el).data("value", value);
 
@@ -2653,16 +2658,16 @@ function check() {
             }
 
             function onTap(ev) {
-                transform.rx = 1;
-                transform.angle = 25;
+                //                transform.rx = 1;
+                //                transform.angle = 25;
                 clearTimeout(timer);
                 timer = setTimeout(function () {}, 200);
                 requestElementUpdate();
             }
 
             function onDoubleTap(ev) {
-                transform.rx = 1;
-                transform.angle = 80;
+                //                transform.rx = 1;
+                //                transform.angle = 80;
                 clearTimeout(timer);
                 timer = setTimeout(function () {}, 500);
                 requestElementUpdate();

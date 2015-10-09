@@ -1,11 +1,11 @@
 //*************************** Tools Menu fucntions *****************\\
 
 function BG() {
-    $('.editmenu').hide(200);
+    $('.editmenu').hide();
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsBG').show();
-    $('.toolsubmenu').show(200);
+    $('.toolsubmenu').show();
     imgfill('.bgimg1', 'url(img/image.png)');
     imgfill('.bgimg2', 'url(img/add.png)');
     imgfill('.bgimg3', 'url(img/image.png)');
@@ -17,16 +17,16 @@ function BG() {
 }
 
 function IMG() {
-    $('.editmenu').hide(200);
+    $('.editmenu').hide();
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsIMG').show();
-    $('.toolsubmenu').show(200);
+    $('.toolsubmenu').show();
     insertimg();
 }
 
 function TXT() {
-    $('.editmenu').hide(200);
+    $('.editmenu').hide();
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsTXT').show();
@@ -34,17 +34,18 @@ function TXT() {
 }
 
 function SHP() {
-    $('.editmenu').hide(200);
+    $('.editmenu').hide();
     $('.toolsubmenu').hide();
     $('.toolscnt').hide();
     $('.toolsSHP').show();
-    $('.toolsubmenu').show(200);
+    $('.toolsubmenu').show();
+    $('.SPHcnt').height($('.SPHcnt').width());
 }
 
 function hideall() {
-    $('.toolsubmenu').hide(200);
+    $('.toolsubmenu').hide();
     $('.toolscnt').hide();
-    $('.editmenu').hide(200);
+    $('.editmenu').hide();
 
 }
 
@@ -98,8 +99,6 @@ $(function () {
             $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
         }
     });
-
-
 
     $('#picker').click(function (e) { // click event handler
         bCanPreview = !bCanPreview;
@@ -197,7 +196,7 @@ function rescaleImage(image_name) {
 function addtext(type) {
     var i = $('.canvastxt').length + 1;
     var div = '<div class="canvastxt txt';
-    var div = div.concat(i, '">Enter your text here</div>');
+    div = div.concat(i, '">Enter your text here</div>');
     $(".canvas").append(div);
     div = ".txt" + i;
     $(div).attr("onclick", "select(this)");
@@ -232,8 +231,8 @@ function textedit() {
     var id = $('.resize').data("type").last;
     $(id).hide();
     $('#txtarea').css('font-size', $(id).css('font-size'));
-//    $('#txtarea').css('top', $(id).css('top'));
-//    $('#txtarea').css('left', $(id).css('left'));
+    //    $('#txtarea').css('top', $(id).css('top'));
+    //    $('#txtarea').css('left', $(id).css('left'));
     $('#txtarea').css('text-align', $(id).css('text-align'));
     $('#txtarea').css('width', $(id).css('width'));
     $('.hiddentxtarea').show();
@@ -364,6 +363,26 @@ $(function () {
     });
 });
 
+//*************************** Text Menu fucntions *****************\\
+function addshape(e) {
+
+    var i = $('.canvasshapecnt').length + 1;
+    var div = '<div class="canvasshapecnt canvasshapecnt';
+    div = div.concat(i, '"></div>');
+    $(".canvas").append(div);
+    //    var i = $('.canvasshape').length + 1;
+    div = '<div class="canvasshape ';
+    div = div.concat(e, i, ' ', e, '"></div>');
+    var id = ".canvasshapecnt" + i;
+    $(id).append(div);
+    $(id).attr("onclick", "select(this)");
+    $(id).data("type", {
+        first: "shp",
+        last: id
+    });
+    $(div).data("value", "");
+
+}
 //*************************** Edit Menu fucntions *****************\\
 
 function select(e) {
@@ -371,7 +390,7 @@ function select(e) {
     $(".resize").removeClass("resize");
     var type = $(e).data("type").first;
     var id = $(e).data("type").last;
-
+    $(id).css("position", "relative");
     switch (type) {
         case "img":
             $('.editsubmenu').hide();
@@ -384,6 +403,13 @@ function select(e) {
             $('.editsubmenu').hide();
             $('.editmenu').show(300);
             $('.edittxtmenu').show();
+            $('.editmenu').removeData("id");
+            $('.editmenu').data("id", id);
+            break;
+        case "shp":
+            $('.editsubmenu').hide();
+            $('.editmenu').show(300);
+            $('.editshpmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
             break;
