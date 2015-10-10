@@ -409,7 +409,7 @@ function select(e) {
         case "shp":
             $('.editsubmenu').hide();
             $('.editmenu').show(300);
-            $('.editshpmenu').show();
+//            $('.editshpmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
             break;
