@@ -407,8 +407,8 @@ function select(e) {
             $('.editmenu').data("id", id);
             break;
         case "shp":
-            $('.editsubmenu').hide();
-            $('.editmenu').show(300);
+//            $('.editsubmenu').hide();
+//            $('.editmenu').show(300);
 //            $('.editshpmenu').show();
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
