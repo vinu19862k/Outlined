@@ -67,12 +67,13 @@ html,
     font-size: 14px;
     color: #999;
     background-color: #ECEDF1;
-    z-index: -1005;
+
 }
 .canvascnt {
     margin: 40px auto;
     width: 330px;
     height: 480px;
+    z-index: -1005;
 }
 .canvas {
     width: 330px;
