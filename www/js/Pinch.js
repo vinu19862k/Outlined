@@ -2525,12 +2525,8 @@ function check() {
             })();
             var screen = document.querySelector(".canvas");
             var el = document.querySelector(".resize");
-            var screenrect = screen.getBoundingClientRect();
-
-            elrect = el.getBoundingClientRect();
-            console.log(elrect);
-            var START_X = ((elrect.x + elrect.left) / 2) - screenrect.x;
-            var START_Y = ((elrect.y + elrect.left) / 2) - screenrect.y;
+            var START_X = (screen.offsetWidth - el.offsetWidth) / 4;
+            var START_Y = (screen.offsetHeight - el.offsetHeight) / 4;
             var ticking = false;
             var transform;
             var timer;
@@ -2592,8 +2588,6 @@ function check() {
                 el.style.webkitTransform = value;
                 el.style.mozTransform = value;
                 el.style.transform = value;
-                el.style.top = 0;
-                el.style.left = 0;
                 ticking = false;
                 $(el).data("value", value);
 
