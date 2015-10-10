@@ -33,7 +33,7 @@ html,
     overflow-y: scroll;
     overflow-x: scroll;
     min-height: 640px;
-    z-index: -1001;
+    z-index: -1020;
     margin: 0 auto;
     /*
     background-image: url(img/brillant.png);
@@ -67,6 +67,7 @@ html,
     font-size: 14px;
     color: #999;
     background-color: #ECEDF1;
+    z-index: -1005;
 }
 .canvascnt {
     margin: 40px auto;
