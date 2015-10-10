@@ -67,7 +67,6 @@ html,
     font-size: 14px;
     color: #999;
     background-color: #ECEDF1;
-
 }
 .canvascnt {
     margin: 40px auto;
@@ -289,16 +288,16 @@ html,
     background-repeat: no-repeat;
     background-size: auto 100%;
     /*    min-height: 50px;*/
-/*
     top: 20px;
     left: 20px;
-*/
     /*    min-width: 100px;*/
     position: fixed;
 }
 .canvastxt {
     max-width: 95%;
     position: fixed;
+    top: 20px;
+    left: 20px;
     border: none;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
     word-wrap: break-word;
