@@ -109,6 +109,7 @@ html,
     border-bottom: solid 3px #000;
     position: absolute;
 }
+
 .footer {
     width: 100%;
     height: 65px;
@@ -204,7 +205,8 @@ html,
 }
 .colorpicker,
 .txtcolorpicker,
-.txtbgcolorpicker {
+.txtbgcolorpicker,
+.shpbgcolorpicker{
     background-color: #222222;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 2px 2px 2px #444444;
@@ -215,7 +217,8 @@ html,
 }
 #picker,
 #txtpicker,
-#txtbgpicker {
+#txtbgpicker,
+#shpbgpicker{
     cursor: crosshair;
     float: left;
     margin: 10px;
@@ -223,7 +226,9 @@ html,
 }
 .preview,
 .txtpreview,
-.txtbgpreview {
+.shppreview,
+.txtbgpreview,
+.shpbgpreview{
     background: url("../img/select.png") repeat scroll center center transparent;
     border-radius: 3px;
     box-shadow: 2px 2px 2px #444444;
@@ -288,16 +293,16 @@ html,
     background-repeat: no-repeat;
     background-size: auto 100%;
     /*    min-height: 50px;*/
-    top: 20px;
-    left: 20px;
+    top: 50px;
+    float: left;
     /*    min-width: 100px;*/
     position: fixed;
 }
 .canvastxt {
     max-width: 95%;
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 50px;
+    float: left;
     border: none;
     font-family: "Raleway Medium", Raleway, Arial, sans-serif;
     word-wrap: break-word;
@@ -316,8 +321,10 @@ html,
     display: block;
     margin: 2px;
 }
+.editmenu,
 .editimgmenu,
-.edittxtmenu {
+.edittxtmenu,
+.editshpmenu{
     width: 99%;
     height: auto;
     -webkit-border-radius: 5px;
@@ -342,7 +349,7 @@ html,
     /*    background: #ECEDF1;*/
 }
 .SPHcnt {
-    width: 30%;
+    width: 10%;
     float: left;
     margin-top: 10px;
     margin-left: 1%;
@@ -351,42 +358,42 @@ html,
     font-size: 12px;
 }
 .canvasshapecnt {
-    width: 200px;
+    width: 50px;
     top: 20;
     left: 20;
     position: fixed;
 }
 .ln {
-    width: 80%;
+    width: 100%;
     border: solid 1px;
     margin: 45% auto;
 }
 .sq {
-    width: 80%;
-    padding-bottom: 80%;
+    width: 100%;
+    padding-bottom: 100%;
     border: solid 1px;
-    margin: 10% auto;
+    margin: 0 auto;
 }
 .rect {
-    width: 80%;
-    padding-bottom: 60%;
-    border: solid 1px;
-    margin: 20% auto;
-}
-.cir {
-    width: 80%;
+    width: 100%;
     padding-bottom: 80%;
     border: solid 1px;
     margin: 10% auto;
+}
+.cir {
+    width: 100%;
+    padding-bottom: 100%;
+    border: solid 1px;
+    margin: 0 auto;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
 .oval {
-    width: 80%;
-    padding-bottom: 50%;
+    width: 100%;
+    padding-bottom: 80%;
     border: solid 1px;
-    margin: 25% auto;
+    margin: 10% auto;
     -moz-border-radius: 100% / 100%;
     -webkit-border-radius: 100% / 100%;
     border-radius: 100% / 100%;

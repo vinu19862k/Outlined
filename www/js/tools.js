@@ -156,7 +156,7 @@ function addimg(e) {
     var i = $('.canvasimg').length + 1;
     var div = '<div class="canvasimg img';
     var div = div.concat(i, '"></div>');
-    $(".canvas").append(div);
+    $(".canvas").prepend(div);
     e = "url(" + e + ")";
     div = ".img" + i;
     $(div).css('background-image', e);
@@ -197,7 +197,7 @@ function addtext(type) {
     var i = $('.canvastxt').length + 1;
     var div = '<div class="canvastxt txt';
     div = div.concat(i, '">Enter your text here</div>');
-    $(".canvas").append(div);
+    $(".canvas").prepend(div);
     div = ".txt" + i;
     $(div).attr("onclick", "select(this)");
     $(div).data("type", {
@@ -365,7 +365,6 @@ $(function () {
 
 //*************************** Text Menu fucntions *****************\\
 function addshape(e) {
-
     var i = $('.canvasshapecnt').length + 1;
     var div = '<div class="canvasshapecnt canvasshapecnt';
     div = div.concat(i, '"></div>');
@@ -387,12 +386,15 @@ function addshape(e) {
 
 function select(e) {
     hideall();
+
     $(".resize").removeClass("resize");
     var type = $(e).data("type").first;
     var id = $(e).data("type").last;
+
     $(id).css("position", "relative");
     switch (type) {
         case "img":
+
             $('.editsubmenu').hide();
             $('.editmenu').show(300);
             $('.editimgmenu').show();
@@ -407,9 +409,9 @@ function select(e) {
             $('.editmenu').data("id", id);
             break;
         case "shp":
-//            $('.editsubmenu').hide();
-//            $('.editmenu').show(300);
-//            $('.editshpmenu').show();
+            $('.editsubmenu').hide();
+            $('.editshpmenu').show();
+            $('.editmenu').show(300);
             $('.editmenu').removeData("id");
             $('.editmenu').data("id", id);
             break;
