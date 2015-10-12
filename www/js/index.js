@@ -7,7 +7,6 @@ function id(element) {
 function onDeviceReady() {
     cameraApp = new cameraApp();
     cameraApp.run();
-
     navigator.splashscreen.hide();
 }
 
@@ -33,9 +32,6 @@ cameraApp.prototype = {
         id("getPhotoFromLibraryButton").addEventListener("click", function () {
             that._getPhotoFromLibrary.apply(that, arguments)
         });
-//        id("getPhotoFromAlbumButton").addEventListener("click", function () {
-//            that._getPhotoFromAlbum.apply(that, arguments);
-//        });
     },
 
     _capturePhoto: function () {
@@ -95,12 +91,13 @@ cameraApp.prototype = {
         });
     },
 
-
     _onPhotoDataSuccess: function (imageData) {
+        var smallImage = document.getElementById('tstimg');
+        smallImage.src = "data:image/jpeg;base64," + imageData;
         var imageURI = "data:image/jpeg;base64," + imageData;
         var img = localStorage.getItem("imgstr");
         if (img != null) {
-            img = img + "^" + imageURI
+            img = img + "µ" + imageURI;
             localStorage.setItem("imgstr", img);
             insertimg();
         } else {
@@ -110,9 +107,14 @@ cameraApp.prototype = {
     },
 
     _onPhotoURISuccess: function (imageURI) {
+//        var smallImage = document.getElementById('smallImage');
+//        smallImage.style.display = 'block';
+//
+//        // Show the captured photo.
+//        smallImage.src = imageURI;
         var img = localStorage.getItem("imgstr");
         if (img != null) {
-            img = img + "^" + imageURI
+            img = img + "µ" + imageURI;
             localStorage.setItem("imgstr", img);
             insertimg();
         } else {
@@ -120,6 +122,7 @@ cameraApp.prototype = {
             insertimg();
         }
     },
+
     _onFail: function (message) {
         alert(message);
     }

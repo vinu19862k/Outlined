@@ -139,7 +139,7 @@ function opengallery(e) {
 function insertimg() {
     $(".ULimgcnt").empty();
     var img = localStorage.getItem("imgstr");
-    var res = img.split("^");
+    var res = img.split("µ");
     for (i = 0; i < res.length; i++) {
         var div = '<img class="ULimgholder ULimg';
         var div = div.concat(i, '"></img>');
@@ -394,7 +394,6 @@ function select(e) {
     $(id).css("position", "relative");
     switch (type) {
         case "img":
-
             $('.editsubmenu').hide();
             $('.editmenu').show(300);
             $('.editimgmenu').show();
@@ -447,59 +446,48 @@ function bringfront(e) {
 function showposition() {
     $('.snap').show();
     var id = $('.editmenu').data("id");
-    var data = $(id).data("value");
-    var value = data.split(")");
+    //    var data = $(id).data("value");
+    //   var value = data.split(")");
     var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
     $(id).css('left', rt);
     var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
     $(id).css('top', ht);
-    value[1] = value[1] + ")";
-    $(id).css('transform', value[1]);
+    //    $(id).css('transform', data);
 }
 
 function snap(pos) {
     var id = $('.editmenu').data("id");
     var data = $(id).data("value");
-    var value = data.split(")");
-    if (value.length = 2) {
-        value[2] = value[1];
-    }
     switch (pos) {
         case "topleft":
             $(id).css('left', 0);
             $(id).css('top', 0);
-            value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
         case "topcenter":
             var rt = ($('.canvas').innerWidth() / 2) - ($(id).outerWidth() / 2);
             $(id).css('left', rt);
             $(id).css('top', 0);
-            value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
         case "topright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             $(id).css('top', 0);
-            var value = $(id).data("value").split(")");
-            value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
         case "centerleft":
             $(id).css('left', 0);
             var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
             $(id).css('top', ht);
-            value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
         case "centerright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             var ht = ($('.canvas').innerHeight() / 2) - ($(id).outerHeight() / 2);
             $(id).css('top', ht);
-            value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
         case "bottomleft":
             $(id).css('left', 0);
@@ -514,16 +502,14 @@ function snap(pos) {
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
             value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
         case "bottomright":
             var rt = $('.canvas').innerWidth() - $(id).outerWidth();
             $(id).css('left', rt);
             var ht = $('.canvas').innerHeight() - $(id).outerHeight();
             $(id).css('top', ht);
-
-            value[2] = value[2] + ")";
-            $(id).css('transform', value[2]);
+            $(id).css('transform', data);
             break;
     }
 }
@@ -547,3 +533,25 @@ function aligntxt(pos) {
             break;
     }
 }
+
+
+
+// ************** Dummy functions ****************\\
+
+//function insertVariable() {
+//    var variableNameInput = document.getElementById("variableNameInput"),
+//        valueInput = document.getElementById("valueInput");
+//    localStorage.setItem(variableNameInput.value, valueInput.value);
+//    variableNameInput.value = "";
+//    valueInput.value = "";
+//}
+//
+//function getVariable() {
+//    var getRemoveVariableNameInput = document.getElementById("getRemoveVariableNameInput"),
+//        result = document.getElementById("result");
+//    if (localStorage.getItem(getRemoveVariableNameInput.value) != undefined) {
+//        result.value = localStorage.getItem(getRemoveVariableNameInput.value);
+//    } else {
+//        result.value = "No such record!"
+//    }
+//}

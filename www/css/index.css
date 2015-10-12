@@ -1,0 +1,402 @@
+* {
+    font-family: sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: #999;
+}
+@font-face {
+    font-family: 'Raleway Medium';
+    src: url('../fonts/Raleway-Medium.ttf');
+}
+body,
+html,
+{
+    padding: 0px;
+    margin: 0px;
+}
+.body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.vdivider {
+    width: .5px;
+    padding: .5px;
+    height: 100%;
+    float: left;
+    position: relative;
+    padding: 1px;
+    margin: auto 3px;
+}
+.tools {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    min-height: 640px;
+    z-index: -1020;
+    margin: 0 auto;
+    /*
+     background-image: url(img/brillant.png);
+     background-repeat: repeat;
+     */
+    position: absolute;
+}
+.resize {
+    border: dotted 2px;
+}
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ECEDF1;
+    margin: 0px auto;
+}
+.tooltabs {
+    height: auto;
+    width: 49%;
+    float: left;
+    margin: 0px auto;
+    margin-top: -10px;
+    text-align: center;
+    border: 0.5px dotted #F4F4F4;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #999;
+    background-color: #ECEDF1;
+}
+.canvascnt {
+    margin: 40px auto;
+    width: 330px;
+    height: 480px;
+    z-index: -1005;
+}
+.canvas {
+    width: 330px;
+    height: 480px;
+    border: solid 1px;
+    background: #fff;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: -1000;
+}
+.snap {
+    display: none;
+}
+.snaptop {
+    border-top: solid 3px #000;
+    width: 30px;
+    height: 27px;
+    position: absolute;
+    margin-top: -10px;
+}
+.snapcenter {
+    width: 30px;
+    height: 27px;
+    position: absolute;
+    margin-top: 240px;
+}
+.snapbottom {
+    width: 30px;
+    height: 27px;
+    margin-top: 465px;
+    border-bottom: solid 3px #000;
+    position: absolute;
+}
+
+.footer {
+    width: 100%;
+    height: 65px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+}
+.menucnt {
+    width: 24%;
+    height: 60px;
+    margin: 2px .5%;
+    background: #ECEDF1;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+.menuimgcnt {
+    width: 40px;
+    height: 40px;
+    margin: 2px auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.toolsubmenu {
+    width: 99%;
+    height: 250px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: solid .5px;
+    bottom: 65px;
+    position: fixed;
+    z-index: 1000;
+    background: #fff;
+    display: none;
+}
+.toolsBG {
+    width: 100%;
+    height: 240px;
+    /*    background: #f3f3f3;*/
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.toolsIMG {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.toolsTXT {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    display: none;
+    padding-top: 10px;
+}
+.toolsSHP {
+    width: 100%;
+    height: 240px;
+    /*    background: #564832;*/
+    position: relative;
+    display: none;
+    padding-top: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.colorcnt {
+    width: 92px;
+    height: 240px;
+    text-align: center;
+    border-right: solid .5px;
+    border-right-color: #ECEDF1;
+    display: inline-block;
+    padding: 5px;
+    margin-top: -10px;
+    float: left;
+}
+.clrcnt {
+    width: 28px;
+    height: 28px;
+    border: solid 1px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    float: left;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #444444;
+}
+.colorpicker,
+.txtcolorpicker,
+.txtbgcolorpicker,
+.shpbgcolorpicker{
+    background-color: #222222;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #444444;
+    color: #FFFFFF;
+    font-size: 12px;
+    position: absolute;
+    width: 120px;
+}
+#picker,
+#txtpicker,
+#txtbgpicker,
+#shpbgpicker{
+    cursor: crosshair;
+    float: left;
+    margin: 10px;
+    border: 0;
+}
+.preview,
+.txtpreview,
+.shppreview,
+.txtbgpreview,
+.shpbgpreview{
+    background: url("../img/select.png") repeat scroll center center transparent;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #444444;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+.BGimgcnt {
+    width: 240px;
+    height: 240px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    margin-top: -10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.imgholder {
+    width: 100px;
+    height: 100px;
+    margin: 9px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    border: dotted .5px;
+}
+.IMGupload {
+    width: 49%;
+    height: 208px;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+    float: left;
+    font-size: 11px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.ULimgcnt {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    margin-top: -10px;
+}
+.ULimgholder {
+    width: 60px;
+    height: 60px;
+    margin: 9px;
+    float: left;
+    border: dotted .5px;
+    cursor: pointer;
+}
+.txtlabel {
+    padding: 10px;
+    font-family: "Raleway Medium", Raleway, Arial, sans-serif;
+}
+.canvasimg {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    /*    min-height: 50px;*/
+    top: 50px;
+    float: left;
+    /*    min-width: 100px;*/
+    position: fixed;
+}
+.canvastxt {
+    max-width: 95%;
+    position: fixed;
+    top: 50px;
+    float: left;
+    border: none;
+    font-family: "Raleway Medium", Raleway, Arial, sans-serif;
+    word-wrap: break-word;
+}
+.hiddentxtarea {
+    display: none;
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
+.txtchange {
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-size: contain;
+    display: block;
+    margin: 2px;
+}
+.editmenu,
+.editimgmenu,
+.edittxtmenu,
+.editshpmenu{
+    width: 99%;
+    height: 36px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: solid .5px;
+    bottom: 65px;
+    position: fixed;
+    z-index: 1000;
+    background: #ECEDF1;
+    padding: 2px 0px;
+    display: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.editcnt {
+    width: 8%;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    margin-left: 3px;
+    /*    background: #ECEDF1;*/
+}
+.SPHcnt {
+    width: 10%;
+    float: left;
+    margin-top: 10px;
+    margin-left: 1%;
+    padding: .5%;
+    text-align: center;
+    font-size: 12px;
+}
+.canvasshapecnt {
+    width: 50px;
+    top: 20;
+    left: 20;
+    position: fixed;
+}
+.ln {
+    width: 100%;
+    border: solid 1px;
+    margin: 45% auto;
+}
+.sq {
+    width: 100%;
+    padding-bottom: 100%;
+    border: solid 1px;
+    margin: 0 auto;
+}
+.rect {
+    width: 100%;
+    padding-bottom: 80%;
+    border: solid 1px;
+    margin: 10% auto;
+}
+.cir {
+    width: 100%;
+    padding-bottom: 100%;
+    border: solid 1px;
+    margin: 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.oval {
+    width: 100%;
+    padding-bottom: 80%;
+    border: solid 1px;
+    margin: 10% auto;
+    -moz-border-radius: 100% / 100%;
+    -webkit-border-radius: 100% / 100%;
+    border-radius: 100% / 100%;
+}

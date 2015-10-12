@@ -2525,15 +2525,13 @@ function check() {
             })();
             var screen = document.querySelector(".canvas");
             var el = document.querySelector(".resize");
-            var START_X = (screen.offsetWidth - el.offsetWidth) / 4;
-            var START_Y = (screen.offsetHeight - el.offsetHeight) / 4;
             var ticking = false;
             var transform;
             var timer;
             transform = {
                 translate: {
-                    x: START_X,
-                    y: START_Y
+                    x: 0,
+                    y: 0
                 },
                 scale: 1,
                 angle: 0,
@@ -2566,8 +2564,8 @@ function check() {
             mc.on("rotatestart rotatemove", onRotate);
             mc.on("pinchstart pinchmove", onPinch);
             mc.on("swipe", onSwipe);
-            mc.on("tap", onTap);
-            mc.on("doubletap", onDoubleTap);
+            //            mc.on("tap", onTap);
+            //            mc.on("doubletap", onDoubleTap);
 
             mc.on("hammer.input", function (ev) {
                 if (ev.isFinal) {
@@ -2579,7 +2577,7 @@ function check() {
 
             function updateElementTransform() {
                 var value = [
-                                'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
+//                                'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
 //                                'scale(' + transform.scale + ', ' + transform.scale + ')',
                                 'rotate3d(' + transform.rx + ',' + transform.ry + ',' + transform.rz + ',' + transform.angle + 'deg)'
                             ];
@@ -2603,10 +2601,22 @@ function check() {
             }
 
             function onPan(ev) {
-                transform.translate = {
-                    x: START_X + ev.deltaX,
-                    y: START_Y + ev.deltaY
-                };
+                var x = $(el).offset().left;
+                var y = $(el).offset().top;
+                if (ev.deltaX > 0) {
+                    x = x + 1;
+                } else {
+                    x = x - 1;
+                }
+                if (ev.deltaY > 0) {
+                    y = y + 1;
+                } else {
+                    y = y - 1;
+                }
+                $(el).offset({
+                    top: y,
+                    left: x
+                });
                 requestElementUpdate();
             }
 
@@ -2618,15 +2628,25 @@ function check() {
                         var width = el.clientWidth;
                         var height = el.clientHeight;
                         if (ev.scale > 1) {
-                            el.style.width = (width + (ev.scale * 2)) + 'px';
-                            el.style.height = (height + (ev.scale * 2)) + 'px';
+                            el.style.width = width + 5 + 'px';
+                            el.style.height = height + 5 + 'px';
                         } else {
-                            el.style.width = (width - (ev.scale * 2)) + 'px';
-                            el.style.height = (height - (ev.scale * 2)) + 'px';
+                            el.style.width = width - 5 + 'px';
+                            el.style.height = height - 5 + 'px';
                         }
                         break;
                     case "txt":
                         break;
+                    case "shp":
+                        var width = el.clientWidth;
+                        var height = el.clientHeight;
+                        if (ev.scale > 1) {
+                            el.style.width = width + 5 + 'px';
+                            el.style.height = height + 5 + 'px';
+                        } else {
+                            el.style.width = width - 5 + 'px';
+                            el.style.height = height - 5 + 'px';
+                        }
                 }
 
             }
@@ -2652,16 +2672,13 @@ function check() {
             }
 
             function onTap(ev) {
-                //                transform.rx = 1;
-                //                transform.angle = 25;
                 clearTimeout(timer);
                 timer = setTimeout(function () {}, 200);
                 requestElementUpdate();
             }
 
             function onDoubleTap(ev) {
-                //                transform.rx = 1;
-                //                transform.angle = 80;
+
                 clearTimeout(timer);
                 timer = setTimeout(function () {}, 500);
                 requestElementUpdate();
