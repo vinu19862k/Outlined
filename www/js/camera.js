@@ -44,7 +44,8 @@ cameraApp.prototype = {
             that._onFail.apply(that, arguments);
         }, {
             quality: 50,
-            destinationType: that._destinationType.DATA_URL
+            destinationType: that._destinationType.DATA_URL,
+            saveToPhotoAlbum: true
         });
     },
 
