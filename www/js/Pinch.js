@@ -2625,6 +2625,7 @@ function check() {
                 var id = $('.resize').data("type").first;
                 switch (id) {
                     case "img":
+      alert(ev.scale);
                         var width = el.clientWidth;
                         var height = el.clientHeight;
                         if (ev.scale > 1) {

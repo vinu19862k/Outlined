@@ -26,9 +26,9 @@ cameraApp.prototype = {
         id("capturePhotoButton").addEventListener("click", function () {
             that._capturePhoto.apply(that, arguments);
         });
-//        id("capturePhotoEditButton").addEventListener("click", function () {
-//            that._capturePhotoEdit.apply(that, arguments)
-//        });
+        //        id("capturePhotoEditButton").addEventListener("click", function () {
+        //            that._capturePhotoEdit.apply(that, arguments)
+        //        });
         id("getPhotoFromLibraryButton").addEventListener("click", function () {
             that._getPhotoFromLibrary.apply(that, arguments)
         });
@@ -36,7 +36,6 @@ cameraApp.prototype = {
 
     _capturePhoto: function () {
         var that = this;
-
         // Take picture using device camera and retrieve image as base64-encoded string.
         navigator.camera.getPicture(function () {
             that._onPhotoDataSuccess.apply(that, arguments);
@@ -44,40 +43,16 @@ cameraApp.prototype = {
             that._onFail.apply(that, arguments);
         }, {
             quality: 50,
-            destinationType: that._destinationType.DATA_URL,
+            destinationType: that._destinationType.FILE_URI,
             saveToPhotoAlbum: true
         });
     },
-
-    _capturePhotoEdit: function () {
-        var that = this;
-        // Take picture using device camera, allow edit, and retrieve image as base64-encoded string.
-        // The allowEdit property has no effect on Android devices.
-        navigator.camera.getPicture(function () {
-            that._onPhotoDataSuccess.apply(that, arguments);
-        }, function () {
-            that._onFail.apply(that, arguments);
-        }, {
-            quality: 20,
-            allowEdit: true,
-            destinationType: cameraApp._destinationType.DATA_URL
-        });
-    },
-
     _getPhotoFromLibrary: function () {
         var that = this;
         // On Android devices, pictureSource.PHOTOLIBRARY and
         // pictureSource.SAVEDPHOTOALBUM display the same photo album.
         that._getPhoto(that._pictureSource.PHOTOLIBRARY);
     },
-
-    _getPhotoFromAlbum: function () {
-        var that = this;
-        // On Android devices, pictureSource.PHOTOLIBRARY and
-        // pictureSource.SAVEDPHOTOALBUM display the same photo album.
-        that._getPhoto(that._pictureSource.SAVEDPHOTOALBUM)
-    },
-
     _getPhoto: function (source) {
         var that = this;
         // Retrieve image file location from specified source.
@@ -91,40 +66,46 @@ cameraApp.prototype = {
             sourceType: source
         });
     },
-
-    _onPhotoDataSuccess: function (imageData) {
-        var smallImage = document.getElementById('tstimg');
-        smallImage.src = "data:image/jpeg;base64," + imageData;
-        var imageURI = "data:image/jpeg;base64," + imageData;
-        var img = localStorage.getItem("imgstr");
-        if (img != null) {
-            img = img + "µ" + imageURI;
-            localStorage.setItem("imgstr", img);
-            insertimg();
-        } else {
-            localStorage.setItem("imgstr", imageURI);
-            insertimg();
-        }
+    _onPhotoDataSuccess: function (imageURI) {
+        getcnt(imageURI);
     },
-
     _onPhotoURISuccess: function (imageURI) {
-//        var smallImage = document.getElementById('smallImage');
-//        smallImage.style.display = 'block';
-//
-//        // Show the captured photo.
-//        smallImage.src = imageURI;
-        var img = localStorage.getItem("imgstr");
-        if (img != null) {
-            img = img + "µ" + imageURI;
-            localStorage.setItem("imgstr", img);
-            insertimg();
-        } else {
-            localStorage.setItem("imgstr", imageURI);
-            insertimg();
-        }
+        getcnt(imageURI);
     },
-
     _onFail: function (message) {
         alert(message);
     }
 }
+var logOb;
+var imageURI;
+var cnt;
+
+function getcnt(e) {
+    imageURI = e;
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSys) {
+        fileSys.root.getDirectory("Images", {
+            create: true,
+            exclusive: false
+        }, function (dir) {
+            var directoryReader = dir.createReader();
+            directoryReader.readEntries(function getcount(entries) {
+                cnt = entries.length + 1
+                window.resolveLocalFileSystemURI(imageURI, function copyPhoto(fileEntry) {
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSys) {
+                        fileSys.root.getDirectory("Images", {
+                            create: true,
+                            exclusive: false
+                        }, function (dir) {
+                            cnt = cnt + ".jpg";
+                            fileEntry.copyTo(dir, cnt, function onCopySuccess(entry) {
+                                getimgcnt();
+                            }, fail);
+                        }, fail);
+                    }, fail);
+                }, fail);
+            }, fail);
+        }, fail);
+    }, fail);
+}
+
+function fail(error) {}
