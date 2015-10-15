@@ -5,6 +5,7 @@ function id(element) {
 }
 
 function onDeviceReady() {
+    alert("ready");
     cameraApp = new cameraApp();
     cameraApp.run();
     navigator.splashscreen.hide();
