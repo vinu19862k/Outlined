@@ -131,7 +131,7 @@ function fillbgimg(id) {
 function opengallery(e) {
     if (e == "gallery") {
         function () {
-            that._getPhotoFromLibrary.apply(that, arguments)
+            that._getPhotoFromLibrary.apply(that, arguments);
         }
         //        $('#getPhotoFromLibraryButton').click();
     } else {
