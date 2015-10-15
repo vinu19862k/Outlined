@@ -116,6 +116,7 @@ function fail(error) {}
 
 
 function capturePhoto() {
+        alert();
     var that = this;
     // Take picture using device camera and retrieve image as base64-encoded string.
     navigator.camera.getPicture(function () {
@@ -127,5 +128,5 @@ function capturePhoto() {
         destinationType: that._destinationType.FILE_URI,
         saveToPhotoAlbum: true
     });
-    alert();
+
 },

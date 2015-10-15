@@ -133,7 +133,8 @@ function opengallery(e) {
         capturePhoto();
 //        $('#getPhotoFromLibraryButton').click();
     } else {
-        $('#capturePhotoButton').click();
+        capturePhoto();
+//        $('#capturePhotoButton').click();
     }
 }
 
