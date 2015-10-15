@@ -130,12 +130,13 @@ function fillbgimg(id) {
 
 function opengallery(e) {
     if (e == "gallery") {
-//        capturePhoto();
-        onDeviceReady1();
-//        $('#getPhotoFromLibraryButton').click();
+        function () {
+            that._getPhotoFromLibrary.apply(that, arguments)
+        }
+        //        $('#getPhotoFromLibraryButton').click();
     } else {
-       onDeviceReady1();
-//        $('#capturePhotoButton').click();
+
+        //        $('#capturePhotoButton').click();
     }
 }
 
@@ -591,7 +592,7 @@ function aligntxt(pos) {
 //    }
 //}
 function capturePhoto() {
-        alert();
+    alert();
     var that = this;
     // Take picture using device camera and retrieve image as base64-encoded string.
     navigator.camera.getPicture(function () {
