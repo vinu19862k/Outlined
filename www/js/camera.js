@@ -54,6 +54,7 @@ cameraApp.prototype = {
         that._getPhoto(that._pictureSource.PHOTOLIBRARY);
     },
     _getPhoto: function (source) {
+        alert(1);
         var that = this;
         // Retrieve image file location from specified source.
         navigator.camera.getPicture(function () {
