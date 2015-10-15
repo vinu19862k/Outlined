@@ -13,69 +13,70 @@ function onDeviceReady() {
 
 
 
-function cameraApp() {}
+function cameraApp() {
 
-cameraApp.prototype = {
-    _pictureSource: null,
+    cameraApp.prototype = {
+        _pictureSource: null,
 
-    _destinationType: null,
+        _destinationType: null,
 
-    run: function () {
-        var that = this;
-        that._pictureSource = navigator.camera.PictureSourceType;
-        that._destinationType = navigator.camera.DestinationType;
-        id("capturePhotoButton").addEventListener("click", function () {
-            that._capturePhoto.apply(that, arguments);
-        });
-        //        id("capturePhotoEditButton").addEventListener("click", function () {
-        //            that._capturePhotoEdit.apply(that, arguments)
-        //        });
-        id("getPhotoFromLibraryButton").addEventListener("click", function () {
-            that._getPhotoFromLibrary.apply(that, arguments)
-        });
-    },
+        run: function () {
+            var that = this;
+            that._pictureSource = navigator.camera.PictureSourceType;
+            that._destinationType = navigator.camera.DestinationType;
+            id("capturePhotoButton").addEventListener("click", function () {
+                that._capturePhoto.apply(that, arguments);
+            });
+            //        id("capturePhotoEditButton").addEventListener("click", function () {
+            //            that._capturePhotoEdit.apply(that, arguments)
+            //        });
+            id("getPhotoFromLibraryButton").addEventListener("click", function () {
+                that._getPhotoFromLibrary.apply(that, arguments)
+            });
+        },
 
-    _capturePhoto: function () {
-        var that = this;
-        // Take picture using device camera and retrieve image as base64-encoded string.
-        navigator.camera.getPicture(function () {
-            that._onPhotoDataSuccess.apply(that, arguments);
-        }, function () {
-            that._onFail.apply(that, arguments);
-        }, {
-            quality: 50,
-            destinationType: that._destinationType.FILE_URI,
-            saveToPhotoAlbum: true
-        });
-    },
-    _getPhotoFromLibrary: function () {
-        var that = this;
-        // On Android devices, pictureSource.PHOTOLIBRARY and
-        // pictureSource.SAVEDPHOTOALBUM display the same photo album.
-        that._getPhoto(that._pictureSource.PHOTOLIBRARY);
-    },
-    _getPhoto: function (source) {
-        alert(1);
-        var that = this;
-        // Retrieve image file location from specified source.
-        navigator.camera.getPicture(function () {
-            that._onPhotoURISuccess.apply(that, arguments);
-        }, function () {
-            cameraApp._onFail.apply(that, arguments);
-        }, {
-            quality: 50,
-            destinationType: cameraApp._destinationType.FILE_URI,
-            sourceType: source
-        });
-    },
-    _onPhotoDataSuccess: function (imageURI) {
-        getcnt(imageURI);
-    },
-    _onPhotoURISuccess: function (imageURI) {
-        getcnt(imageURI);
-    },
-    _onFail: function (message) {
-        alert(message);
+        _capturePhoto: function () {
+            var that = this;
+            // Take picture using device camera and retrieve image as base64-encoded string.
+            navigator.camera.getPicture(function () {
+                that._onPhotoDataSuccess.apply(that, arguments);
+            }, function () {
+                that._onFail.apply(that, arguments);
+            }, {
+                quality: 50,
+                destinationType: that._destinationType.FILE_URI,
+                saveToPhotoAlbum: true
+            });
+        },
+        _getPhotoFromLibrary: function () {
+            var that = this;
+            // On Android devices, pictureSource.PHOTOLIBRARY and
+            // pictureSource.SAVEDPHOTOALBUM display the same photo album.
+            that._getPhoto(that._pictureSource.PHOTOLIBRARY);
+        },
+        _getPhoto: function (source) {
+            alert(1);
+            var that = this;
+            // Retrieve image file location from specified source.
+            navigator.camera.getPicture(function () {
+                that._onPhotoURISuccess.apply(that, arguments);
+            }, function () {
+                cameraApp._onFail.apply(that, arguments);
+            }, {
+                quality: 50,
+                destinationType: cameraApp._destinationType.FILE_URI,
+                sourceType: source
+            });
+        },
+        _onPhotoDataSuccess: function (imageURI) {
+            getcnt(imageURI);
+        },
+        _onPhotoURISuccess: function (imageURI) {
+            getcnt(imageURI);
+        },
+        _onFail: function (message) {
+            alert(message);
+        }
     }
 }
 var logOb;
