@@ -1,4 +1,4 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+//document.addEventListener("deviceready", onDeviceReady, false);
 
 function id(element) {
     return document.getElementById(element);
@@ -111,4 +111,21 @@ function getcnt(e) {
         }, fail);
     }, fail);
 }
-    function fail(error) {}
+
+function fail(error) {}
+
+
+function capturePhoto() {
+    var that = this;
+    // Take picture using device camera and retrieve image as base64-encoded string.
+    navigator.camera.getPicture(function () {
+        that._onPhotoDataSuccess.apply(that, arguments);
+    }, function () {
+        that._onFail.apply(that, arguments);
+    }, {
+        quality: 50,
+        destinationType: that._destinationType.FILE_URI,
+        saveToPhotoAlbum: true
+    });
+    alert();
+},
