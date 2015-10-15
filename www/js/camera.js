@@ -81,6 +81,7 @@ var imageURI;
 var cnt;
 
 function getcnt(e) {
+    alert(e);
     imageURI = e;
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSys) {
         fileSys.root.getDirectory("Images", {
