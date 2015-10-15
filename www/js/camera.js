@@ -129,4 +129,4 @@ function capturePhoto() {
         saveToPhotoAlbum: true
     });
 
-},
+}

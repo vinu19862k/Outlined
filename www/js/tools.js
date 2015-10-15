@@ -603,4 +603,4 @@ function capturePhoto() {
         saveToPhotoAlbum: true
     });
 
-},
+}
