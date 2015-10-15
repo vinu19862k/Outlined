@@ -4,7 +4,7 @@ function id(element) {
     return document.getElementById(element);
 }
 
-function onDeviceReady() {
+function onDeviceReady1() {
     alert("ready");
     cameraApp = new cameraApp();
     cameraApp.run();

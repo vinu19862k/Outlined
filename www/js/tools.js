@@ -130,10 +130,11 @@ function fillbgimg(id) {
 
 function opengallery(e) {
     if (e == "gallery") {
-        capturePhoto();
+//        capturePhoto();
+        onDeviceReady1();
 //        $('#getPhotoFromLibraryButton').click();
     } else {
-        capturePhoto();
+       onDeviceReady1();
 //        $('#capturePhotoButton').click();
     }
 }
