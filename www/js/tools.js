@@ -22,8 +22,7 @@ function IMG() {
     $('.toolscnt').hide();
     $('.toolsIMG').show();
     $('.toolsubmenu').show();
-    getimgcnt();
-
+    insertimg();
 }
 
 function TXT() {
@@ -130,53 +129,18 @@ function fillbgimg(id) {
 
 function opengallery(e) {
     if (e == "gallery") {
-        function () {
-            that._getPhotoFromLibrary.apply(that, arguments);
-        }
-        //        $('#getPhotoFromLibraryButton').click();
+
+        $('#getPhotoFromLibraryButton').click();
     } else {
-
-        //        $('#capturePhotoButton').click();
+        $('#capturePhotoButton').click();
     }
-}
-
-var imgurl = "";
-var drct;
-
-function getcnt1() {
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSys) {
-        fileSys.root.getDirectory("Images", {
-            create: true,
-            exclusive: false
-        }, function (dir) {
-            drct = dir;
-            var directoryReader = dir.createReader();
-            directoryReader.readEntries(function getcount1(entries) {
-                cnt = entries.length;
-                imgurl = "";
-                for (i = 1; i <= cnt; i++) {
-                    var cnt1 = i + ".jpg";
-                    drct.getFile(cnt1, {
-                        create: true,
-                        exclusive: false
-                    }, function toarry(fileEntry) {
-                        imgurl = imgurl + "µ" + fileEntry.toURL();
-                        insertimg();
-                    }, fail);
-                }
-            }, fail);
-        }, fail);
-    }, fail);
-}
-
-function fail1(error) {
-    alert(error);
 }
 
 function insertimg() {
     $(".ULimgcnt").empty();
-    var res = imgurl.split("µ");
-    for (i = 1; i < res.length; i++) {
+    var img = localStorage.getItem("imgstr");
+    var res = img.split("µ");
+    for (i = 0; i < res.length; i++) {
         var div = '<img class="ULimgholder ULimg';
         var div = div.concat(i, '"></img>');
         var imgid = ".ULimg" + i;
@@ -591,18 +555,3 @@ function aligntxt(pos) {
 //        result.value = "No such record!"
 //    }
 //}
-function capturePhoto() {
-    alert();
-    var that = this;
-    // Take picture using device camera and retrieve image as base64-encoded string.
-    navigator.camera.getPicture(function () {
-        that._onPhotoDataSuccess.apply(that, arguments);
-    }, function () {
-        that._onFail.apply(that, arguments);
-    }, {
-        quality: 50,
-        destinationType: that._destinationType.FILE_URI,
-        saveToPhotoAlbum: true
-    });
-
-}
