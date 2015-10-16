@@ -26,9 +26,6 @@ cameraApp.prototype = {
         id("capturePhotoButton").addEventListener("click", function () {
             that._capturePhoto.apply(that, arguments);
         });
-//        id("capturePhotoEditButton").addEventListener("click", function () {
-//            that._capturePhotoEdit.apply(that, arguments)
-//        });
         id("getPhotoFromLibraryButton").addEventListener("click", function () {
             that._getPhotoFromLibrary.apply(that, arguments)
         });

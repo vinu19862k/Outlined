@@ -129,7 +129,6 @@ function fillbgimg(id) {
 
 function opengallery(e) {
     if (e == "gallery") {
-
         $('#getPhotoFromLibraryButton').click();
     } else {
         $('#capturePhotoButton').click();
