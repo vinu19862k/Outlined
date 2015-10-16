@@ -224,6 +224,13 @@ module.exports = [
             "FileSystem"
         ]
     },
+        {
+        "file": "plugins/org.apache.cordova.file/www/android/FileSystem.js",
+        "id": "org.apache.cordova.file.androidFileSystem",
+        "merges": [
+            "FileSystem"
+        ]
+    },
     {
         "file": "plugins/org.apache.cordova.file/www/fileSystems-roots.js",
         "id": "org.apache.cordova.file.fileSystems-roots",
