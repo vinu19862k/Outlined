@@ -1,234 +1,242 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Camera Sample</title>
-		<meta charset="utf-8">
-        <link rel="stylesheet" href="css/index.css" />
-		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/camera.js"></script>
-	</head>
-	<body>
-                       <!--Canvas Section-->
-                <div class="tools" style="background-image: url(img/brillant.png); background-repeat: repeat;">
-                    <div class="canvascnt">
-                        <div class="snap">
-                            <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snaptop" onclick="snap('topleft')"></div>
-                            <div class="snaptop" style="margin-left: 150px;" onclick="snap('topcenter')"></div>
-                            <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snaptop" onclick="snap('topright')"></div>
-                            <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snapcenter" onclick="snap('centerleft')"></div>
-                            <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snapcenter" onclick="snap('centerright')"></div>
-                            <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snapbottom" onclick="snap('bottomleft')"></div>
-                            <div class="snapbottom" style="margin-left: 150px;" onclick="snap('bottomcenter')"></div>
-                            <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snapbottom" onclick="snap('bottomright')"></div>
-                        </div>
-                        <div id="canvas" class="canvas">
-                            <img id="tstimg" style="width:300px; word-wrap: break-word;"></img>
-                            <div class="hiddentxtarea">
-                                <textarea id="txtarea" onkeyup="textAreaAdjust(txtarea)" onended="test()" style="width: 80%;"> your text here</textarea>
-                                </br>
-                                <div class="txtchange" style="background-image: url(img/Tick.png)" onclick="textupdate()"></div>
-                                <div class="txtchange" style="background-image: url(img/Cross.png)" onclick="textdiscard()"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>			</div>
+
+<head>
+    <title>Camera Sample</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/camera.js"></script>
+</head>
+
+<body>
+    <!--Canvas Section-->
+    <div class="tools" style="background-image: url(img/brillant.png); background-repeat: repeat;">
+        <div class="canvascnt">
+            <div class="snap">
+                <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snaptop" onclick="snap('topleft')"></div>
+                <div class="snaptop" style="margin-left: 150px;" onclick="snap('topcenter')"></div>
+                <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snaptop" onclick="snap('topright')"></div>
+                <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snapcenter" onclick="snap('centerleft')"></div>
+                <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snapcenter" onclick="snap('centerright')"></div>
+                <div style="margin-left: -10px; border-left: 3px solid rgb(0, 0, 0);" class="snapbottom" onclick="snap('bottomleft')"></div>
+                <div class="snapbottom" style="margin-left: 150px;" onclick="snap('bottomcenter')"></div>
+                <div style="border-right: 3px solid rgb(0, 0, 0); margin-left: 310px;" class="snapbottom" onclick="snap('bottomright')"></div>
+            </div>
+            <div id="canvas" class="canvas">
+                <img id="tstimg" style="width:300px; word-wrap: break-word;"></img>
+                <div class="hiddentxtarea">
+                    <textarea id="txtarea" onkeyup="textAreaAdjust(txtarea)" onended="test()" style="width: 80%;"> your text here</textarea>
+                    </br>
+                    <div class="txtchange" style="background-image: url(img/Tick.png)" onclick="textupdate()"></div>
+                    <div class="txtchange" style="background-image: url(img/Cross.png)" onclick="textdiscard()"></div>
+                </div>
+            </div>
         </div>
-        <!--Tools Submenu Section-->
-        <div id="toolsubmenu" class="toolsubmenu">
-            <div class="toolsBG toolscnt">
-                <div class="BGColorchoser">
-                    <div class="colorcnt">
-                        <div style="margin-bottom:15px; font-size: 14px;">Colours</div>
-                        <div class="clrcnt" style="border:none; width:60px; padding-left:25px; border-radius:none; box-shadow:none">
-                            <!-- colorpicker element -->
-                            <div class="preview"></div>
-                            <div class="colorpicker" style="display:none">
-                                <canvas id="picker" var="3" width="100" height="100"></canvas>
-                            </div>
+    </div>
+    </div>
+    </div>
+    <!--Tools Submenu Section-->
+    <div id="toolsubmenu" class="toolsubmenu">
+        <div class="toolsBG toolscnt">
+            <div class="BGColorchoser">
+                <div class="colorcnt">
+                    <div style="margin-bottom:15px; font-size: 14px;">Colours</div>
+                    <div class="clrcnt" style="border:none; width:60px; padding-left:25px; border-radius:none; box-shadow:none">
+                        <!-- colorpicker element -->
+                        <div class="preview"></div>
+                        <div class="colorpicker" style="display:none">
+                            <canvas id="picker" var="3" width="100" height="100"></canvas>
                         </div>
-                        <div class="clrcnt" style="background: #ffffff;" onclick="clrchange('#ffffff')"></div>
-                        <div class="clrcnt" style="background: #000000;" onclick="clrchange('#000000')"></div>
-                        <div class="clrcnt" style="background: #1abc9c;" onclick="clrchange('#1abc9c')"></div>
-                        <div class="clrcnt" style="background: #2ecc71;" onclick="clrchange('#2ecc71')"></div>
-                        <div class="clrcnt" style="background: #3498db;" onclick="clrchange('#3498db')"></div>
-                        <div class="clrcnt" style="background: #f95151;" onclick="clrchange('#f95151')"></div>
-                        <div class="clrcnt" style="background: #e67e22;" onclick="clrchange('#e67e22')"></div>
-                        <div class="clrcnt" style="background: #f9e35f;" onclick="clrchange('#f9e35f')"></div>
                     </div>
+                    <div class="clrcnt" style="background: #ffffff;" onclick="clrchange('#ffffff')"></div>
+                    <div class="clrcnt" style="background: #000000;" onclick="clrchange('#000000')"></div>
+                    <div class="clrcnt" style="background: #1abc9c;" onclick="clrchange('#1abc9c')"></div>
+                    <div class="clrcnt" style="background: #2ecc71;" onclick="clrchange('#2ecc71')"></div>
+                    <div class="clrcnt" style="background: #3498db;" onclick="clrchange('#3498db')"></div>
+                    <div class="clrcnt" style="background: #f95151;" onclick="clrchange('#f95151')"></div>
+                    <div class="clrcnt" style="background: #e67e22;" onclick="clrchange('#e67e22')"></div>
+                    <div class="clrcnt" style="background: #f9e35f;" onclick="clrchange('#f9e35f')"></div>
+                </div>
+                <div class="BGimgcnt">
+                    <div style="margin-bottom:15px; font-size: 14px;">Images</div>
+                    <div class="imgholder bgimg1" onclick="fillbgimg('bgimg1')"> </div>
+                    <div class="imgholder bgimg2" onclick="fillbgimg('bgimg2')"> </div>
+                    <div class="imgholder bgimg3" onclick="fillbgimg('bgimg3')"> </div>
+                    <div class="imgholder bgimg4" onclick="fillbgimg('bgimg4')"> </div>
+                    <div class="imgholder bgimg5" onclick="fillbgimg('bgimg5')"> </div>
+                    <div class="imgholder bgimg6" onclick="fillbgimg('bgimg6')"> </div>
+                    <div class="imgholder bgimg7" onclick="fillbgimg('bgimg7')"> </div>
+                    <div class="imgholder bgimg8" onclick="fillbgimg('bgimg8')"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolsIMG toolscnt">
+            <div class="IMGchooser">
+                <div class="tooltabs">
+                    Gallery
+                </div>
+                <div class="tooltabs">
+                    Library
+                </div>
+                <div class="IMGupload">
+                    <button class="button dh" id="getPhotoFromLibraryButton" style="display:none"></button>
+                    <button class="button dh" id="capturePhotoButton" style="display:none"></button>
+                    </br>
+                    </br>
+                    Click below to select a image from the gallery or take picture using camera.
+                    </br>
+                    </br>
+                    <div class="menuimgcnt" style="background-image: url(img/images.png); width:60px; height:60px; cursor:pointer; margin: 10px;float:left" onclick="opengallery('gallery')"></div>
+                    <div class="menuimgcnt" style="background-image: url(img/cameraicon.png); width:60px; height:60px; cursor:pointer; margin: 10px; float:left" onclick="opengallery('camera')"></div>
+                    <div class="ULimgcnt" id="ULimgcnt">
+
+                    </div>
+                </div>
+                <div class="IMGupload">
+                    </br>
+                    </br>
+                    Choose images from out library.
+                    </br>
+                    </br>
                     <div class="BGimgcnt">
-                        <div style="margin-bottom:15px; font-size: 14px;">Images</div>
-                        <div class="imgholder bgimg1" onclick="fillbgimg('bgimg1')"> </div>
-                        <div class="imgholder bgimg2" onclick="fillbgimg('bgimg2')"> </div>
-                        <div class="imgholder bgimg3" onclick="fillbgimg('bgimg3')"> </div>
-                        <div class="imgholder bgimg4" onclick="fillbgimg('bgimg4')"> </div>
-                        <div class="imgholder bgimg5" onclick="fillbgimg('bgimg5')"> </div>
-                        <div class="imgholder bgimg6" onclick="fillbgimg('bgimg6')"> </div>
-                        <div class="imgholder bgimg7" onclick="fillbgimg('bgimg7')"> </div>
-                        <div class="imgholder bgimg8" onclick="fillbgimg('bgimg8')"> </div>
+                        <div class="ULimgholder img1" id="img1" onclick="addimg('img/image.png')"> </div>
+                        <div class="ULimgholder bgimg2" onclick="addimg('bgimg2')"> </div>
+                        <div class="ULimgholder bgimg3" onclick="addimg('bgimg3')"> </div>
+                        <div class="ULimgholder bgimg4" onclick="addimg('bgimg4')"> </div>
+                        <div class="ULimgholder bgimg5" onclick="addimg('bgimg5')"> </div>
+                        <div class="ULimgholder bgimg6" onclick="addimg('bgimg6')"> </div>
+                        <div class="ULimgholder bgimg7" onclick="addimg('bgimg7')"> </div>
+                        <div class="ULimgholder bgimg8" onclick="addimg('bgimg8')"> </div>
                     </div>
-                </div>
-            </div>
-            <div class="toolsIMG toolscnt">
-                <div class="IMGchooser">
-                    <div class="tooltabs">
-                        Gallery
-                    </div>
-                    <div class="tooltabs">
-                        Library
-                    </div>
-                    <div class="IMGupload">
-                        <button class="button dh" id="getPhotoFromLibraryButton" style="display:none"></button>
-                        <button class="button dh" id="capturePhotoButton" style="display:none"></button>
-                        </br>
-                        </br>
-                        Click below to select a image from the gallery or take picture using camera.
-                        </br>
-                        </br>
-                        <div class="menuimgcnt" style="background-image: url(img/images.png); width:60px; height:60px; cursor:pointer; margin: 10px;float:left" onclick="opengallery('gallery')"></div>
-                        <div class="menuimgcnt" style="background-image: url(img/cameraicon.png); width:60px; height:60px; cursor:pointer; margin: 10px; float:left" onclick="opengallery('camera')"></div>
-                        <div class="ULimgcnt" id="ULimgcnt">
 
-                        </div>
-                    </div>
-                    <div class="IMGupload">
-                        </br>
-                        </br>
-                        Choose images from out library.
-                        </br>
-                        </br>
-                        <div class="BGimgcnt">
-                            <div class="ULimgholder img1" id="img1" onclick="addimg('img/image.png')"> </div>
-                            <div class="ULimgholder bgimg2" onclick="addimg('bgimg2')"> </div>
-                            <div class="ULimgholder bgimg3" onclick="addimg('bgimg3')"> </div>
-                            <div class="ULimgholder bgimg4" onclick="addimg('bgimg4')"> </div>
-                            <div class="ULimgholder bgimg5" onclick="addimg('bgimg5')"> </div>
-                            <div class="ULimgholder bgimg6" onclick="addimg('bgimg6')"> </div>
-                            <div class="ULimgholder bgimg7" onclick="addimg('bgimg7')"> </div>
-                            <div class="ULimgholder bgimg8" onclick="addimg('bgimg8')"> </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="toolsTXT toolscnt">
-                <div class="TXTchooser" style="Text-align:center; padding:10px">
-                    <div id="txttitle" class="txtlabel" style="font-size:26pt" onclick="addtext('txttitle')">Title</div>
-                    <div id="txtsubtitle1" class="txtlabel" style="font-size:22pt" onclick="addtext('txtsubtitle1')">Subtitle 1</div>
-                    <div id="txtsubtitle2" class="txtlabel" style="font-size:18pt" onclick="addtext('txtsubtitle2')">Subtitle 2</div>
-                    <div id="txtbody" class="txtlabel" style="font-size:14pt" onclick="addtext('txtbody')">Body text</div>
-                </div>
-
-            </div>
-            <div class="toolsSHP toolscnt">
-                <div style="Text-align:center;">
-                    <div>
-                        Shapes
-                    </div>
-                    <div class="SPHcnt" onclick="addshape('ln')">
-                        <div class="ln"></div>
-                    </div>
-                    <div class="SPHcnt" onclick="addshape('sq')">
-                        <div class="sq"></div>
-                    </div>
-                    <div class="SPHcnt" onclick="addshape('rect')">
-                        <div class="rect"></div>
-                    </div>
-                    <div class="SPHcnt" onclick="addshape('cir')">
-                        <div class="cir"></div>
-                    </div>
-                    <div class="SPHcnt" onclick="addshape('oval')">
-                        <div class="oval"></div>
-                    </div>
                 </div>
             </div>
         </div>
-        <!--Edit menu Section-->
-        <div id="editmenu" class="editmenu">
-            <div class="editimgmenu editsubmenu">
-                <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
-                <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
-                <div class="vdivider" style=" height: 0px;"></div>
-                <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
-                <div id="Reset" class="editcnt" style="background-image: url(img/refresh.png); float: right" onclick="resetelement()"></div>
-                <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
+        <div class="toolsTXT toolscnt">
+            <div class="TXTchooser" style="Text-align:center; padding:10px">
+                <div id="txttitle" class="txtlabel" style="font-size:26pt" onclick="addtext('txttitle')">Title</div>
+                <div id="txtsubtitle1" class="txtlabel" style="font-size:22pt" onclick="addtext('txtsubtitle1')">Subtitle 1</div>
+                <div id="txtsubtitle2" class="txtlabel" style="font-size:18pt" onclick="addtext('txtsubtitle2')">Subtitle 2</div>
+                <div id="txtbody" class="txtlabel" style="font-size:14pt" onclick="addtext('txtbody')">Body text</div>
             </div>
-            <div class="edittxtmenu editsubmenu">
-                <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
-                <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
-                <div class="vdivider" style=" height: 0px;"></div>
-                <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
-                <div id="alignl" class="editcnt" style="background-image: url(img/AlignLeft.png)" onclick="aligntxt('left')"></div>
-                <div id="alignc" class="editcnt" style="background-image: url(img/AlignCenter.png)" onclick="aligntxt('center')"></div>
-                <div id="alignr" class="editcnt" style="background-image: url(img/AlignRight.png)" onclick="aligntxt('right')"></div>
-                <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
-                    <!-- colorpicker element -->
-                    <div class="txtpreview" style="background-image: url('img/TextColor.png');background-size: contain"></div>
-                    <div class="txtcolorpicker" style="display:none; top: -120px; right: 10px;">
-                        <canvas id="txtpicker" var="3" width="100" height="100"></canvas>
-                    </div>
-                </div>
-                <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
-                    <!-- colorpicker element -->
-                    <div class="txtbgpreview"></div>
-                    <div class="txtbgcolorpicker" style="display:none; top: -120px; right: 10px;">
-                        <canvas id="txtbgpicker" var="3" width="100" height="100" style=""></canvas>
-                    </div>
-                </div>
-                <div id="edittxt" class="editcnt" style="background-image: url(img/Edit.png)" onclick="textedit()"></div>
-                <div id="Reset" class="editcnt" style="background-image: url(img/refresh.png); float: right" onclick="resetelement()"></div>
-                <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
 
-            </div>
-            <div class="editshpmenu editsubmenu">
-                <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
-                <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
-                <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
-                <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
-                    <!-- colorpicker element -->
-                    <div class="shppreview" style="background-image: url('img/TextColor.png');background-size: contain"></div>
-                    <div class="shpcolorpicker" style="display:none; top: -120px; right: 10px;">
-                        <canvas id="shppicker" var="3" width="100" height="100"></canvas>
-                    </div>
+        </div>
+        <div class="toolsSHP toolscnt">
+            <div style="Text-align:center;">
+                <div>
+                    Shapes
                 </div>
-                <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
-                    <!-- colorpicker element -->
-                    <div class="shpbgpreview"></div>
-                    <div class="shpbgcolorpicker" style="display:none; top: -120px; right: 10px;">
-                        <canvas id="shpbgpicker" var="3" width="100" height="100" style=""></canvas>
-                    </div>
+                <div class="SPHcnt" onclick="addshape('ln')">
+                    <div class="ln"></div>
                 </div>
-                <div id="Reset" class="editcnt" style="background-image: url(img/refresh.png); float: right" onclick="resetelement()"></div>
-                <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
+                <div class="SPHcnt" onclick="addshape('sq')">
+                    <div class="sq"></div>
+                </div>
+                <div class="SPHcnt" onclick="addshape('rect')">
+                    <div class="rect"></div>
+                </div>
+                <div class="SPHcnt" onclick="addshape('cir')">
+                    <div class="cir"></div>
+                </div>
+                <div class="SPHcnt" onclick="addshape('oval')">
+                    <div class="oval"></div>
+                </div>
             </div>
         </div>
-        <!--Footer Section-->
-        <div id="footer" class="footer" style="background-image: url(img/brillant.png); background-repeat: repeat;">
-            <div class="menucnt" onclick="BG()">
-                <div class="menuimgcnt" style="background-image: url(img/background.png);"></div>
-                <span>Background</span>
-            </div>
-            <div class="menucnt" onclick="IMG()">
-                <div class="menuimgcnt" style="background-image: url(img/images.png);"></div>
-                <span>Images</span>
-            </div>
-            <div class="menucnt" onclick="TXT()">
-                <div class="menuimgcnt" style="background-image: url(img/text.png);"></div>
-                <span>Text</span>
-            </div>
-            <div class="menucnt" onclick="SHP()">
-                <div class="menuimgcnt" style="background-image: url(img/shapes.png);"></div>
-                <span>Shapes</span>
-            </div>
+    </div>
+    <!--Edit menu Section-->
+    <div id="editmenu" class="editmenu">
+        <div class="editimgmenu editsubmenu">
+            <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
+            <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
+            <div class="vdivider" style=" height: 0px;"></div>
+            <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
+            <div id="Reset" class="editcnt" style="background-image: url(img/refresh.png); float: right" onclick="resetelement()"></div>
+            <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
         </div>
+        <div class="edittxtmenu editsubmenu">
+            <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
+            <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
+            <div class="vdivider" style=" height: 0px;"></div>
+            <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
+            <div id="alignl" class="editcnt" style="background-image: url(img/AlignLeft.png)" onclick="aligntxt('left')"></div>
+            <div id="alignc" class="editcnt" style="background-image: url(img/AlignCenter.png)" onclick="aligntxt('center')"></div>
+            <div id="alignr" class="editcnt" style="background-image: url(img/AlignRight.png)" onclick="aligntxt('right')"></div>
+            <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
+                <!-- colorpicker element -->
+                <div class="txtpreview" style="background-image: url('img/TextColor.png');background-size: contain"></div>
+                <div class="txtcolorpicker" style="display:none; top: -120px; right: 10px;">
+                    <canvas id="txtpicker" var="3" width="100" height="100"></canvas>
+                </div>
+            </div>
+            <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
+                <!-- colorpicker element -->
+                <div class="txtbgpreview"></div>
+                <div class="txtbgcolorpicker" style="display:none; top: -120px; right: 10px;">
+                    <canvas id="txtbgpicker" var="3" width="100" height="100" style=""></canvas>
+                </div>
+            </div>
+            <div id="edittxt" class="editcnt" style="background-image: url(img/Edit.png)" onclick="textedit()"></div>
+            <div id="Reset" class="editcnt" style="background-image: url(img/refresh.png); float: right" onclick="resetelement()"></div>
+            <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
+
+        </div>
+        <div class="editshpmenu editsubmenu">
+            <div id="sendback" class="editcnt" style="background-image: url(img/Backward.png)" onclick="sendback('.editimgmenu')"></div>
+            <div id="bringfront" class="editcnt" style="background-image: url(img/Forward.png)" onclick="bringfront('.editimgmenu')"></div>
+            <div id="position" class="editcnt" style="background-image: url(img/Position.png)" onclick="showposition()"></div>
+            <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
+                <!-- colorpicker element -->
+                <div class="shppreview" style="background-image: url('img/TextColor.png');background-size: contain"></div>
+                <div class="shpcolorpicker" style="display:none; top: -120px; right: 10px;">
+                    <canvas id="shppicker" var="3" width="100" height="100"></canvas>
+                </div>
+            </div>
+            <div class="clrcnt" style="border:none; width:36px; border-radius:none; box-shadow:none; margin: 0px 2px 0px;">
+                <!-- colorpicker element -->
+                <div class="shpbgpreview"></div>
+                <div class="shpbgcolorpicker" style="display:none; top: -120px; right: 10px;">
+                    <canvas id="shpbgpicker" var="3" width="100" height="100" style=""></canvas>
+                </div>
+            </div>
+            <div id="Reset" class="editcnt" style="background-image: url(img/refresh.png); float: right" onclick="resetelement()"></div>
+            <div id="Delete" class="editcnt" style="background-image: url(img/Delete.png); float: right" onclick="deleteelement()"></div>
+        </div>
+    </div>
+    <!--Footer Section-->
+    <div id="footer" class="footer" style="background-image: url(img/brillant.png); background-repeat: repeat;">
+        <div class="menucnt" onclick="BG()">
+            <div class="menuimgcnt" style="background-image: url(img/background.png);"></div>
+            <span>Background</span>
+        </div>
+        <div class="menucnt" onclick="IMG()">
+            <div class="menuimgcnt" style="background-image: url(img/images.png);"></div>
+            <span>Images</span>
+        </div>
+        <div class="menucnt" onclick="TXT()">
+            <div class="menuimgcnt" style="background-image: url(img/text.png);"></div>
+            <span>Text</span>
+        </div>
+        <div class="menucnt" onclick="SHP()">
+            <div class="menuimgcnt" style="background-image: url(img/shapes.png);"></div>
+            <span>Shapes</span>
+        </div>
+    </div>
 
 
-        <script src="js/phonegap.js"></script>
-        <script src="js/jquery.js"></script>
-        <script src="js/iscroll.js"></script>
-        <script src="js/tools.js"></script>
-        <script src="js/jquery-ui.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/Jquery-Touch.js"></script>
-        <script src="js/Pinch.js"></script>
-	</body>
+    <script src="js/phonegap.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/Jquery-Touch.js"></script>
+    <script src="js/Pinch.js"></script>
+    <script type="text/javascript">
+        init();
+
+    </script>
+</body>
+
 </html>

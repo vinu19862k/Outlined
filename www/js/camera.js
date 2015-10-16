@@ -1,4 +1,7 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+function init() {
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
 
 function id(element) {
     return document.getElementById(element);
@@ -21,6 +24,7 @@ cameraApp.prototype = {
 
     run: function () {
         var that = this;
+        alert("sd");
         that._pictureSource = navigator.camera.PictureSourceType;
         that._destinationType = navigator.camera.DestinationType;
         id("capturePhotoButton").addEventListener("click", function () {
@@ -105,11 +109,11 @@ cameraApp.prototype = {
     },
 
     _onPhotoURISuccess: function (imageURI) {
-//        var smallImage = document.getElementById('smallImage');
-//        smallImage.style.display = 'block';
-//
-//        // Show the captured photo.
-//        smallImage.src = imageURI;
+        //        var smallImage = document.getElementById('smallImage');
+        //        smallImage.style.display = 'block';
+        //
+        //        // Show the captured photo.
+        //        smallImage.src = imageURI;
         var img = localStorage.getItem("imgstr");
         if (img != null) {
             img = img + "µ" + imageURI;
